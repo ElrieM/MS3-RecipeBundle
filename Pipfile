@@ -10,6 +10,8 @@ autopep8 = "*"
 pylint = "*"
 pylint-flask = "*"
 pandas = "*"
+flask-pymongo = "*"
+dnspython = "*"
 
 [dev-packages]
 ipykernel = "*"
