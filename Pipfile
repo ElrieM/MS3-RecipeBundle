@@ -9,6 +9,7 @@ pep8 = "*"
 autopep8 = "*"
 pylint = "*"
 pylint-flask = "*"
+pandas = "*"
 
 [dev-packages]
 ipykernel = "*"
