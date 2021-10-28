@@ -1,108 +1,258 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+<h1 align="center">Sudoku Time</h1>
 
-Welcome USER_NAME,
+[View the live project here.](#)
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+This website provides users with the opportunity to add, search and store various recipes.
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+![mockup](#)
 
-## Gitpod Reminders
+## Contents <!-- omit in toc -->
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+- [1. User Experience (UX)](#1-user-experience-ux)
+  - [1.1 Strategy Plane](#11-strategy-plane)
+    - [Target audience](#target-audience)
+  - [1.2 Scope Plane](#12-scope-plane)
+    - [1.2.1 Requirements and functional specifications](#121-requirements-and-functional-specifications)
+    - [1.2.2 User Stories](#122-user-stories)
+      - [Site Visitor Goals](#site-visitor-goals)
+      - [Site Owner Goals](#site-owner-goals)
+  - [1.3 Structure Plane](#13-structure-plane)
+    - [Structure](#structure)
+  - [1.4 Skeleton Plane](#14-skeleton-plane)
+    - [1.4.1 Navigation](#141-navigation)
+    - [1.4.2 Wireframes](#142-wireframes)
+  - [1.5 Surface Plane](#15-surface-plane)
+    - [Colour scheme](#colour-scheme)
+    - [Typography](#typography)
+    - [Imagery](#imagery)
+- [2. Technologies Used](#2-technologies-used)
+  - [2.1 Language Used](#21-language-used)
+  - [2.2 Frameworks, Libraries & Programs Used](#22-frameworks-libraries--programs-used)
+- [3. Features](#3-features)
+      - [3.1 Existing Features](#31-existing-features)
+      - [3.2 Features Left to Implement](#32-features-left-to-implement)
+- [4. Testing](#4-testing)
+      - [Click here to go to testing](#click-here-to-go-to-testing)
+- [5. Deployment](#5-deployment)
+  - [5.1. GitHub Pages](#51-github-pages)
+  - [5.2. Forking the GitHub Repository](#52-forking-the-github-repository)
+  - [5.3. Making a Local Clone](#53-making-a-local-clone)
+- [6. Credits](#6-credits)
+  - [6.1. Code](#61-code)
+  - [6.2. Content](#62-content)
+  - [6.3. Media](#63-media)
+  - [6.4. Acknowledgements](#64-acknowledgements)
 
-`python3 -m http.server`
+# 1. User Experience (UX)
 
-A blue button should appear to click: _Make Public_,
+## 1.1 Strategy Plane
 
-Another blue button should appear to click: _Open Browser_.
+This website will allow users to keep a digital recipe book, easily uploading and storing their favourite recipes to refer back to later instead of thumbing through piles of paper recipes. It will also enable them to search recipes based on ingredients they have on-hand.
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+### Target audience
 
-A blue button should appear to click: _Make Public_,
+- Cooking enthusiasts
 
-Another blue button should appear to click: _Open Browser_.
+## 1.2 Scope Plane
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+### 1.2.1 Requirements and functional specifications
 
-To log into the Heroku toolbelt CLI:
+- Header and Footer
+  - Simple header with Logo that returns to landing page and dropdown menu
+  - Hamburger menu on all device sizes
+  - Footer with icons, navigates to Home (landing page), Contact page (report bugs / suggestions or contact)
+- Landing page
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+### 1.2.2 User Stories
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+#### Site Visitor Goals
 
-------
+  1. As a Site Visitor, I want to easily navigate the website's pages from the header and footer.
 
-## Release History
+#### Site Owner Goals
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+  9. As the Site Owner, I want to make it easy and convenient for users to send suggestions for improvement or bug reports to a dedicated mailbox, thereby improving the chances of them returning.
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+## 1.3 Structure Plane
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+### Structure
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+The website consists of the following pages:
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+- Landing page
+- Search page
+- Recipe collection page
+- Recipe page
+- Contact page
+- 404 error page
+- Header:
+  - Navigation button to all pages
+- Footer:
+  - Return to landing page, settings and contact form
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+Schematic website flow can be seen [here](#)
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+## 1.4 Skeleton Plane
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+### 1.4.1 Navigation
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+- Landing page navigates to...
+- ... pages navigate to landing page, with settings and contact page accessible from header and footer.
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+### 1.4.2 Wireframes
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+- Home / Landing page - [view](#)
+- Contact page - [view](#)
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+## 1.5 Surface Plane
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+### Colour scheme
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+- For the colour scheme, I wanted to keep the colour schemes simple due to the nature of the game.
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+- The main colours for the three themes were:
+  - Bright, generated by uploading [a picture from Pexels](/docs/other/bright.jpg) to [coolors](https://coolors.co/291420-adbd89-eac7ae-63183c-dddca6)
+    - #DDDCA6 Pale Spring Bud - Background colour
+    - #ADBD89 Olivine - Header and footer background colour
+    - #EAC7AE Desert Sand - Navigation buttons on landing page 
+    - #291420 Dark Purple - Header text
+    - #63183C Tyrian Purple - Content text
+    - #FFF White - puzzle and timer background
+    - Snapshot of palette images ![mockup](docs/other/color-palette_bright.png)
+    - Attribution: [Photo by Pixabay from Pexels](https://www.pexels.com/photo/butterfly-perched-on-flower-462118/)
+    
+  - Light, generated by uploading [a picture from Pexels](docs/other/light.jpg) to [coolors](https://coolors.co/ffffff-f7f1ff-decdf5-656176-534d56)
+    - #F7F1FF Magnolia - Background colour and Content text
+    - #DECDF5 Thistle - Header and footer background colour
+    - #656176 Old Lavendar - Navigation buttons on landing page 
+    - #534D56 Dark Liver - Header text
+    - #FFF White - puzzle and timer background
+    - Snapshot of palette images ![mockup](docs/other/color-palette_light.png)
+    - Attribution: [Photo by Pixabay from Pexels](https://www.pexels.com/photo/pink-and-purple-flower-field-262713/)
 
-------
+  - Dark, generated by uploading [a picture from Pexels](docs/other/dark.jpg) to [coolors](https://coolors.co/4f6073-eeeeee-a8c4c3-3d4b59-60848b)
+    - #3D4B59 Charcoal - Background colour
+    - #4F6073 Black Coral - Header and footer background colour
+    - #EEE Cultured - Navigation buttons on landing page, puzzle and timer background
+    - #534D56 Dark Liver - Header and Content text
+    - #60848B Steel Teal - Puzzle input cells
+    - Snapshot of palette images ![mockup](docs/other/color-palette_dark.png)
+    - Attribution: [Photo by Pixabay from Pexels](https://www.pexels.com/photo/close-up-of-leaf-326055/)
 
-## FAQ about the uptime script
+### Typography
 
-**Why have you added this script?**
+- When selecting a font for the puzzle, I searched Google Fonts (filtering for Numerals) for a font with . I selected EB Garamond, which is a classical font with numbers that are equal in size and align with all other numbers in a single line. This was important to me to make sure the numbers in the puzzle appeared in a straight line across the grid, with no numbers dipping below or sticking out above others.
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+- For the website text, I used EB Garamond's suggested pairing "Raleway" for its elegant and classic format, which I feel alings with the nature of the game.
 
-**How will this affect me?**
+### Imagery
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+- I opted for a simple background on the because the puzzle grid is already quite busy and a busy background would add unnecessary distraction.
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+# 2. Technologies Used
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+## 2.1 Language Used
 
-**So….?**
+- [HTML 5](https://en.wikipedia.org/wiki/HTML5)
+- [CSS](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
+- [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
+- [Python](https://www.python.org/)
+- [Jinja](https://jinja.palletsprojects.com/en/3.0.x/)
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+## 2.2 Frameworks, Libraries & Programs Used
 
-**Can I opt out?**
+### - [Bootstrap 5:](https://getbootstrap.com/docs/5.1/getting-started/introduction/) <!-- omit in toc -->
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+- Bootstrap was used to assist with the responsiveness and styling of the website:
+  - Horizontal alignment navs & tabs used for navbar
+  
+### - [Google Fonts:](https://fonts.google.com/) <!-- omit in toc -->
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+- Imported (fonts)] fonts from Google Fonts into the style.css file used on all pages throughout the website.
+  
+### - [Font Awesome:](https://fontawesome.com/) <!-- omit in toc -->
 
-**Anything more?**
+- Font Awesome was used on all pages throughout the website to add icons for aesthetic and UX purposes.
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+### - [jQuery:](https://jquery.com/) <!-- omit in toc -->
 
----
+- jQuery in conjunction with Bootstrap make the navbar and modal responsive.
 
-Happy coding!
+### - [jQuery UI:](https://jqueryui.com/) <!-- omit in toc -->
+
+- Used to make solve modal draggable.
+
+### - [Git:](https://git-scm.com/) <!-- omit in toc -->
+
+- Git was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
+
+### - [GitHub:](https://github.com/) <!-- omit in toc -->
+
+- GitHub is used to store the projects code after being pushed from Git.
+
+### - [Visual Studio Code:](https://code.visualstudio.com/) <!-- omit in toc -->
+
+- IDE used to write code for this project.
+
+### - [Balsamiq:](https://balsamiq.com/) <!-- omit in toc -->
+
+- Balsamiq was used to create the wireframes during the design process.
+
+### - [Am I Responsive:](http://ami.responsivedesign.is/) <!-- omit in toc -->
+
+- Used to create mockups for README file.
+
+### - [Resizing.app:](https://resizing.app/features/resize-png/) <!-- omit in toc -->
+
+- Resize PNG to reduce README file sizes.
+
+# 3. Features
+
+## 3.1 Existing Features
+
+- Responsive on all device sizes
+- Interactive elements
+- Contact form to report bugs / make suggestions
+
+## 3.2 Features Left to Implement
+
+- Puzzle for the day challenge, where site visitors can compete for better completion time
+- Scoreboard to store best scored times and levels of all visitors on challenge game
+- Check inputs against solution in both puzzle games
+- Save last 5 completion times and levels in practice game to track improvement
+
+# 4. Testing
+
+## [Click here to go to testing](TESTING.md)
+
+# 5. APIs
+
+# 6. Deployment
+
+# 7. Credits
+
+## 7.1. Code
+
+- Bootstrap 5: Bootstrap Library used to make the site responsive using the Bootstrap Grid System
+- [emailJS](https://www.emailjs.com/) for contact form
+
+## 7.2. Content
+
+- Created favicon from logo using [favicon.cc](https://www.favicon.cc/)
+
+## 7.3. Media
+
+- [Font Awesome](http://fontawesome.com)
+- [Google Fonts](https://fonts.google.com/)
+- [Pexels](https://www.pexels.com/)
+- [Testing example](https://github.com/pmeeny/CI-MS2-BicepMusicFanSite)
+- [Favicon guidance](https://www.101computing.net/html-how-to-add-a-favicon/)
+- [Cypress testing](https://www.chaijs.com/api/assert/)
+- [Cypress guide for writing tests](https://docs.cypress.io/guides/overview/why-cypress)
+
+## 7.4. Acknowledgements
+
+- My mentor for guidance and support.
+- My partner for advice and patience.
+- My brothers for their pep-talks and positivity.
+- My mother for all her words of love and encouragement.
