@@ -22,6 +22,36 @@ def index():
     return render_template("index.html")
 
 
+@app.route("/recipes")
+def recipes():
+    return render_template("recipes.html")
+
+
+@app.route("/collection")
+def collection():
+    return render_template("collection.html")
+
+
+@app.route("/contact")
+def contact():
+    return render_template("contact.html")
+
+
+@app.route("/register", methods=["GET", "POST"])
+def register():
+    return render_template("register.html")
+
+
+@app.route("/signin", methods=["GET", "POST"])
+def signin():
+    return render_template("signin.html")
+
+
+@app.route("/signout")
+def signout():
+    return redirect(url_for("signin"))
+
+
 if __name__ == "__main__":
     app.run(
         host=os.environ.get("IP", "0.0.0.0"),
