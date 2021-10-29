@@ -11042,7 +11042,7 @@ blockquote {
   right: 0;
   z-index: 1030;
   border-bottom: 1px solid #dee2e6;
-  background-color: #fff;
+  background-color: transparent;
   font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 #mainNav .navbar-brand {
