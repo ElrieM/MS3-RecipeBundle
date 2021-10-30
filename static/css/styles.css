@@ -11041,7 +11041,7 @@ blockquote {
   left: 0;
   right: 0;
   z-index: 1030;
-  border-bottom: 1px solid #dee2e6;
+  border-bottom: 1px solid #9d9295;
   background-color: transparent;
   font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
@@ -11062,7 +11062,7 @@ blockquote {
 }
 @media (min-width: 992px) {
   #mainNav {
-    border-bottom: 1px solid transparent;
+    border-bottom: 1px solid #9d9295;
     background: transparent;
   }
   #mainNav .navbar-brand {
@@ -11117,9 +11117,9 @@ footer {
   padding-bottom: 3rem;
 }
 
-header.masthead {
+div.masthead {
   position: relative;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
   padding-top: calc(8rem + 57px);
   padding-bottom: 8rem;
   background: no-repeat center center;
@@ -11127,7 +11127,7 @@ header.masthead {
   background-size: cover;
   background-attachment: scroll;
 }
-header.masthead:before {
+div.masthead:before {
   content: "";
   position: absolute;
   top: 0;
@@ -11137,22 +11137,22 @@ header.masthead:before {
   background-color: #212529;
   opacity: 0.5;
 }
-header.masthead .page-heading,
-header.masthead .post-heading,
-header.masthead .site-heading {
+div.masthead .page-heading,
+div.masthead .post-heading,
+div.masthead .site-heading {
   color: #fff;
 }
-header.masthead .page-heading,
-header.masthead .site-heading {
+div.masthead .page-heading,
+div.masthead .site-heading {
   text-align: center;
 }
-header.masthead .page-heading h1, header.masthead .page-heading .h1,
-header.masthead .site-heading h1,
-header.masthead .site-heading .h1 {
+div.masthead .page-heading h1, div.masthead .page-heading .h1,
+div.masthead .site-heading h1,
+div.masthead .site-heading .h1 {
   font-size: 3rem;
 }
-header.masthead .page-heading .subheading,
-header.masthead .site-heading .subheading {
+div.masthead .page-heading .subheading,
+div.masthead .site-heading .subheading {
   font-size: 1.5rem;
   font-weight: 300;
   line-height: 1.1;
@@ -11160,43 +11160,43 @@ header.masthead .site-heading .subheading {
   margin-top: 0.625rem;
   font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
-header.masthead .post-heading h1, header.masthead .post-heading .h1 {
+div.masthead .post-heading h1, div.masthead .post-heading .h1 {
   font-size: 2.25rem;
 }
-header.masthead .post-heading .meta,
-header.masthead .post-heading .subheading {
+div.masthead .post-heading .meta,
+div.masthead .post-heading .subheading {
   line-height: 1.1;
   display: block;
 }
-header.masthead .post-heading .subheading {
+div.masthead .post-heading .subheading {
   font-size: 1.5rem;
   font-weight: 600;
   margin: 0.75rem 0 2rem;
   font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
-header.masthead .post-heading .meta {
+div.masthead .post-heading .meta {
   font-size: 1.25rem;
   font-weight: 300;
   font-style: italic;
   font-family: "Lora", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
-header.masthead .post-heading .meta a {
+div.masthead .post-heading .meta a {
   color: #fff;
 }
 @media (min-width: 992px) {
-  header.masthead {
+  div.masthead {
     padding-top: 12.5rem;
     padding-bottom: 12.5rem;
   }
-  header.masthead .page-heading h1, header.masthead .page-heading .h1,
-header.masthead .site-heading h1,
-header.masthead .site-heading .h1 {
+  div.masthead .page-heading h1, div.masthead .page-heading .h1,
+div.masthead .site-heading h1,
+div.masthead .site-heading .h1 {
     font-size: 5rem;
   }
-  header.masthead .post-heading h1, header.masthead .post-heading .h1 {
+  div.masthead .post-heading h1, div.masthead .post-heading .h1 {
     font-size: 3.5rem;
   }
-  header.masthead .post-heading .subheading {
+  div.masthead .post-heading .subheading {
     font-size: 1.875rem;
   }
 }

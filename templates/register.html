@@ -1,6 +1,62 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <h1>Register page</h1>
+<h2 class="text-uppercase text-center">Create new user account</h2>
+<!-- Adapted from https://mdbootstrap.com/docs/standard/extended/registration/ -->
+
+<div class="row d-flex justify-content-center align-items-center">
+    <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+        <div class="card" style="border-radius: 15px;">
+            <div class="card-body p-3">
+                <form method="POST" action={{ url_for('register') }}>
+                    <!-- User name -->
+                    <div class="form-outline mb-2">
+                        <input type="text" id="username" name="username" class="form-control form-control-lg" />
+                        <label class="form-label" for="username">User Name</label>
+                    </div>
+                    <!-- Email address -->
+                    <div class="form-outline mb-2">
+                        <input type="email" id="form3Example3cg" class="form-control form-control-lg" />
+                        <label class="form-label" for="form3Example3cg">Email address</label>
+                    </div>
+                    <!-- Password -->
+                    <div class="form-outline mb-2">
+                        <input type="password" id="form3Example4cg" class="form-control form-control-lg" />
+                        <label class="form-label" for="form3Example4cg">Password</label>
+                    </div>
+                    <!-- Repeat password -->
+                    <div class="form-outline mb-2">
+                        <input type="password" id="password" name="password" class="form-control form-control-lg" />
+                        <label class="form-label" for="password">Repeat password</label>
+                    </div>
+                    <!-- Agree terms -->
+                    <div class="form-check d-flex justify-content-center mb-2">
+                        <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3cg" />
+                        <label class="form-check-label" for="form2Example3g">
+                            I agree all statements in 
+                            <a href="#!" class="text-body">
+                                <u>Terms of service</u>
+                            </a>
+                        </label>
+                    </div>
+                    <!-- Submit button -->
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" class="btn btn-dark btn-lg">
+                            Register
+                        </button>
+                    </div>
+                    <!-- Sign in instead -->
+                    <p class="text-center text-muted mt-3 mb-0">
+                        Already have an account?
+                        <a href="#!" class="fw-bold text-body">
+                            <u>Sign in here</u>
+                        </a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 {% endblock %}
