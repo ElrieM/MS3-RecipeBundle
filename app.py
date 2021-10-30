@@ -52,7 +52,9 @@ def register():
         register = {
             "username": request.form.get("username"),
             "email": request.form.get("email"),
-            "password": generate_password_hash(request.form.get("password"))
+            "password": generate_password_hash(
+                request.form.get("password"),
+                method='pbkdf2:sha256', salt_length=16)
         }
         mongo.db.users.insert_one(register)
 
