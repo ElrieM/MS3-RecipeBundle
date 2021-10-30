@@ -40,6 +40,25 @@ def contact():
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
+    if request.method == "POST":
+        # confirm username not already in DB
+        existing_user = mongo.db.users.find_one(
+            {"username": request.form.get("username")})
+
+        if existing_user:
+            flash("Username already exists, please try again")
+            return redirect(url_for("register"))
+
+        register = {
+            "username": request.form.get("username"),
+            "email": request.form.get("email"),
+            "password": generate_password_hash(request.form.get("password"))
+        }
+        mongo.db.users.insert_one(register)
+
+        # store new user in 'session' cookie
+        session["user"] = request.form.get("username")
+        flash("New user registered successfully")
     return render_template("register.html")
 
 

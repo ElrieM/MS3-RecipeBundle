@@ -12,6 +12,8 @@ pylint-flask = "*"
 pandas = "*"
 flask-pymongo = "*"
 dnspython = "*"
+pymongo = "*"
+certifi = "*"
 
 [dev-packages]
 ipykernel = "*"
