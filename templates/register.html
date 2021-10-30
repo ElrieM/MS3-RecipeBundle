@@ -11,29 +11,32 @@
                 <form method="POST" action={{ url_for('register') }}>
                     <!-- User name -->
                     <div class="form-outline mb-2">
-                        <input type="text" id="username" name="username" class="form-control form-control-lg" />
+                        <input type="text" id="username" name="username" minlength="5"
+                        maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="form-control form-control-lg" required />
                         <label class="form-label" for="username">User Name</label>
                     </div>
                     <!-- Email address -->
                     <div class="form-outline mb-2">
-                        <input type="email" id="email" name="email" class="form-control form-control-lg" />
+                        <input type="email" id="email" name="email" class="form-control form-control-lg" required />
                         <label class="form-label" for="email">Email address</label>
                     </div>
                     <!-- Password -->
                     <div class="form-outline mb-2">
-                        <input type="password" id="password" class="form-control form-control-lg" />
+                        <input type="password" id="password" name="password" minlength="5" maxlength="15"
+                        pattern="^[a-zA-Z0-9]{5,15}$" class="form-control form-control-lg" required />
                         <label class="form-label" for="password">Password</label>
                     </div>
                     <!-- Repeat password -->
                     <div class="form-outline mb-2">
-                        <input type="password" id="passwordRepeat" name="passwordRepeat" class="form-control form-control-lg" />
+                        <input type="password" id="passwordRepeat" name="passwordRepeat" minlength="5" maxlength="15"
+                            pattern="^[a-zA-Z0-9]{5,15}$" class="form-control form-control-lg" required />
                         <label class="form-label" for="passwordRepeat">Repeat password</label>
                     </div>
                     <!-- Agree terms -->
                     <div class="form-check d-flex justify-content-center mb-2">
-                        <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3cg" />
-                        <label class="form-check-label" for="form2Example3g">
-                            I agree all statements in 
+                        <input class="form-check-input me-2" type="checkbox" value="" id="formvalidate" required/>
+                        <label class="form-check-label" for="formvalidate">
+                            I agree all statements in
                             <a href="#!" class="text-body">
                                 <u>Terms of service</u>
                             </a>
