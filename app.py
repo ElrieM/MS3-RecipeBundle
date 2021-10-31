@@ -64,6 +64,27 @@ def register():
 
 @app.route("/signin", methods=["GET", "POST"])
 def signin():
+    if request.method == "POST":
+        # searches username in db
+        user_exists = mongo.db.users.find_one(
+            {"username": request.form.get("username")})
+
+        if user_exists:
+            # Checks password agrees to saved in db before allowing access
+            if check_password_hash(
+                    user_exists["password"], request.form.get("password")):
+                session["user"] = request.form.get("username")
+                flash("Welcome, {}".format(request.form.get("username")))
+            else:
+                # Message if password incorrect
+                flash("Credentials do not match, please try again")
+                return redirect(url_for("signin"))
+
+        else:
+            # Message if username not found
+            flash("Credentials do not match, please try again")
+            return redirect(url_for("signin"))
+
     return render_template("signin.html")
 
 
