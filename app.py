@@ -62,7 +62,7 @@ def register():
 
         # store new user in 'session' cookie
         session["user"] = request.form.get("username")
-        flash("New user registered successfully")
+        flash("Welcome, {}".format(request.form.get("username")))
         return redirect(url_for("collection", username=session["user"]))
 
     return render_template("register.html")
@@ -81,7 +81,8 @@ def signin():
                     user_exists["password"], request.form.get("password")):
                 session["user"] = request.form.get("username")
                 flash("Welcome, {}".format(request.form.get("username")))
-                return redirect(url_for("collection", username=session["user"]))
+                return redirect(url_for("collection",
+                                username=session["user"]))
             else:
                 # Message if password incorrect
                 flash("Credentials do not match, please try again")
