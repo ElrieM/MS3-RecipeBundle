@@ -59,6 +59,8 @@ def register():
         # store new user in 'session' cookie
         session["user"] = request.form.get("username")
         flash("New user registered successfully")
+        return redirect(url_for("recipes", username=session["user"]))
+
     return render_template("register.html")
 
 
@@ -75,6 +77,7 @@ def signin():
                     user_exists["password"], request.form.get("password")):
                 session["user"] = request.form.get("username")
                 flash("Welcome, {}".format(request.form.get("username")))
+                return redirect(url_for("recipes", username=session["user"]))
             else:
                 # Message if password incorrect
                 flash("Credentials do not match, please try again")
@@ -90,6 +93,8 @@ def signin():
 
 @app.route("/signout")
 def signout():
+    session.pop('user')
+    flash("Sign out successful")
     return redirect(url_for("signin"))
 
 
