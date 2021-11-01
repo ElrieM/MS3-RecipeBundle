@@ -62,8 +62,22 @@
     <!-- Page Header-->
     <!-- Copied and adapted from https://startbootstrap.com/theme/clean-blog -->
     <header class="masthead" style="background-image: url('static/images/header-bg.jpg');">
-
+        
     </header>
+
+<section>
+    <!-- Flash message -->
+        <!-- Adapted from https://flask.palletsprojects.com/en/2.0.x/patterns/flashing/ -->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul class=flashes>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+</section>
 
     {% block content %}
 
