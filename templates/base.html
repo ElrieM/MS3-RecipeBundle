@@ -38,6 +38,8 @@
                     </li>
                     <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4"
                             href="{{ url_for('recipes') }}">Recipes</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" 
+                            href="{{ url_for('collection') }}">My Collection</a></li>
                     <!-- Dropdown adapted from https://getbootstrap.com/docs/5.0/components/dropdowns/ -->
                     <li class="nav-item dropdown">
                         <a class="nav-link px-lg-3 py-3 py-lg-4 dropdown-toggle" href="#"
@@ -50,7 +52,6 @@
                             <li><a class="dropdown-item" href="{{ url_for('signin') }}">Sign In</a></li>
                             <li><a class="dropdown-item" href="{{ url_for('signout') }}">Sign Out</a></li>
                             <li><a class="dropdown-item" href="{{ url_for('register') }}">Register</a></li>
-                            <li><a class="dropdown-item" href="{{ url_for('collection') }}">My Collection</a></li>
                         </ul>
                     </li>
                     <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4"
@@ -65,7 +66,7 @@
         
     </header>
 
-<section>
+<section id="flash-message">
     <!-- Flash message -->
         <!-- Adapted from https://flask.palletsprojects.com/en/2.0.x/patterns/flashing/ -->
         {% with messages = get_flashed_messages() %}
