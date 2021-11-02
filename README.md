@@ -1,8 +1,8 @@
-<h1 align="center">Sudoku Time</h1>
+<h1 align="center">Recipe Bundle</h1>
 
-[View the live project here.](#)
+[View the live project here.](http://ci-ms3-recipebook.herokuapp.com/)
 
-This website provides users with the opportunity to add, search and store various recipes.
+This website provides users with the opportunity to add, edit and delete your own recipes, as well as search for other recipes recipes.
 
 ![mockup](#)
 
@@ -52,6 +52,7 @@ This website will allow users to keep a digital recipe book, easily uploading an
 ### Target audience
 
 - Cooking enthusiasts
+- People looking to store family recipes safely
 
 ## 1.2 Scope Plane
 
@@ -60,18 +61,34 @@ This website will allow users to keep a digital recipe book, easily uploading an
 - Header and Footer
   - Simple header with Logo that returns to landing page and dropdown menu
   - Hamburger menu on all device sizes
-  - Footer with icons, navigates to Home (landing page), Contact page (report bugs / suggestions or contact)
+  - Navbar navigates to Home (landing page), Search page, Collection page and Sign Out page (only available when signed in), Sign In page and Register page (only available when signed out).
+  - Footer with icons, navigates to Home (landing page), Search page, Collection page and Sign Out page (only available when signed in), Sign In page and Register page (only available when signed out), Contact page (report bugs / suggestions or contact)
 - Landing page
+- Collection page
+  - List of recipes
+  - Add new recipes
+  - Remove recipes
+- Search
+  - Search by ingredients
+  - Search by cuisine
+  - Search by meal type
 
 ### 1.2.2 User Stories
 
 #### Site Visitor Goals
 
   1. As a Site Visitor, I want to easily navigate the website's pages from the header and footer.
+  2. As a Site Visitor, I want to be able to privately store my recipes.
+  3. As a Site Visitor, I want to be able to view my stored recipes.
+  4. As a Site Visitor, I want to be able to add my recipes.
+  5. As a Site Visitor, I want to be able to edit my recipes.
+  6. As a Site Visitor, I want to be able to remove recipes I no longer want to store.
+  7. As a Site Visitor, I want to be able to search for other recipes that may interest me.
 
 #### Site Owner Goals
 
-  9. As the Site Owner, I want to make it easy and convenient for users to send suggestions for improvement or bug reports to a dedicated mailbox, thereby improving the chances of them returning.
+  8. As the Site Owner, I want to make it easy and convenient for users to send suggestions for improvement or bug reports to a dedicated mailbox, thereby improving the chances of them returning.
+  9. As the Site Owner, I want to restrict recipe storage-related features to registered users.
 
 ## 1.3 Structure Plane
 
@@ -90,7 +107,7 @@ The website consists of the following pages:
 - Footer:
   - Return to landing page, settings and contact form
 
-Schematic website flow can be seen [here](#)
+Schematic website flow can be seen [here](static\readme\wireframes\site_map.png)
 
 ## 1.4 Skeleton Plane
 
@@ -101,7 +118,11 @@ Schematic website flow can be seen [here](#)
 
 ### 1.4.2 Wireframes
 
-- Home / Landing page - [view](#)
+- Home / Landing page - [view](static\readme\wireframes\index.png)
+- Search page - [view](static\readme\wireframes\search.png)
+- Collection page - [view](static\readme\wireframes\collection.png)
+- Recipe add / edit pages - [view](static\readme\wireframes\recipe_edit.png)
+- Recipe view page - [view](static\readme\wireframes\recipe_view.png)
 - Contact page - [view](#)
 
 ## 1.5 Surface Plane
