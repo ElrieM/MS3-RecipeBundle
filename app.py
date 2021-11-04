@@ -19,6 +19,13 @@ mongo = PyMongo(app)
 
 
 @app.route("/")
+@app.route("/collection")
+def collection():
+    recipes = mongo.db.recipes.find()
+    return render_template("collection.html", recipes=recipes)
+
+
+@app.route("/index")
 def index():
     return render_template("index.html")
 
@@ -31,10 +38,6 @@ def recipes():
 @app.route("/search")
 def search():
     return render_template("search.html")
-
-@app.route("/collection")
-def collection():
-    return render_template("collection.html")
 
 
 @app.route("/contact")

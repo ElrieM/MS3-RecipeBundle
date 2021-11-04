@@ -1,8 +1,31 @@
 {% extends "base.html" %}
 {% block content %}
 
+
+<h1 class="text-center">My Recipes</h1>
+
+<!-- Table of recipes -->
 <div class="container">
-    <h1 class="text-center">Collection page</h1>
+    <div class="row">
+        <button type="submit" class="col-2 btn btn-dark btn-lg">
+            Add New
+        </button>
+        <a class="col-10">
+            <i class="fas fa-search prefix"></i>
+            <input class="text-center" type="text" id="search-col" name="search-col" placeholder="Search">
+        </a>
+    </div>
+    <div class="row">
+        <ul>
+            {% for recipe in recipes %}
+            <li class="col-8">
+                {{ recipe.recipe_name }}
+            </li>
+            {% endfor %}
+        </ul>
+
+    </div>
+
 </div>
 
 {% endblock %}
