@@ -139,7 +139,8 @@ Schematic website flow can be seen [here](static\readme\wireframes\site_map.png)
   - #1F1012 Gondola - Header text
   - #5F3E52 Eggplant - Content text
   - #8F9A6D Avocado
-  - Snapshot of palette images ![mockup](docs/other/color-palette.png)
+  - #786779 Salt Box - Dropdown Menu background
+  - Snapshot of palette images ![mockup](static\readme\other\color-palette.png)
   - Attribution: [Photo by Rachel Claire from Pexels](https://www.pexels.com/photo/delicious-cheese-and-sausage-garnished-with-nuts-and-herbs-in-restaurant-4993251/)
 
 ### Typography
@@ -179,10 +180,6 @@ Schematic website flow can be seen [here](static\readme\wireframes\site_map.png)
 ### - [jQuery:](https://jquery.com/) <!-- omit in toc -->
 
 - jQuery in conjunction with Bootstrap make the navbar and modal responsive.
-
-### - [jQuery UI:](https://jqueryui.com/) <!-- omit in toc -->
-
-- Used to make solve modal draggable.
 
 ### - [Git:](https://git-scm.com/) <!-- omit in toc -->
 
