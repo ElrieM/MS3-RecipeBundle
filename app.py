@@ -30,9 +30,10 @@ def index():
     return render_template("index.html")
 
 
-@app.route("/recipes")
-def recipes():
-    return render_template("recipes.html")
+@app.route("/recipes/<recipe>")
+def recipes(recipe):
+    if recipe:
+        return render_template("recipes.html", recipe=recipe)
 
 
 @app.route("/search")

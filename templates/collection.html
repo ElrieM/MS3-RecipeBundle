@@ -20,6 +20,7 @@
             {% for recipe in recipes %}
             <li class="col-8">
                 {{ recipe.recipe_name }}
+                <a href="{{ url_for('recipes', recipe=recipe)}}">View</a
             </li>
             {% endfor %}
         </ul>
