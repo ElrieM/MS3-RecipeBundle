@@ -5,7 +5,14 @@
     <h1 class="text-center">{{ recipe.recipe_name }}</h1>
     <div class="row" id="recipe-card">
         <div class="col-md-5">
+            <div class="row">
+                <p class="col">Total time: {{ recipe.total_time }}</p>
+                <p class="col">Active time: {{ recipe.active_time }}</p>
+            </div>
             <img id="recipe-image" src="{{ url_for('static', filename='images/header-bg.jpg') }}">
+            <p>Meal type: {{ recipe.type }}</p>
+            <p>Diet: {{ recipe.diet }}</p>
+            <p>Cuisine: {{ recipe.cuisine }}</p>
         </div>
         <div class="col col-md-7">
             <!-- Adapted from -->
@@ -56,7 +63,11 @@
                     <div id="recipeEquip" class="accordion-collapse collapse" aria-labelledby="recipeEquipHeading"
                         data-bs-parent="#recipeAccordion">
                         <div class="accordion-body">
-                            equipment
+                            <ul>
+                                {% for equipment in recipe.equipment %}
+                                <li>{{ equipment }}</li>
+                                {% endfor %}
+                            </ul>
                         </div>
                     </div>
                 </div>
