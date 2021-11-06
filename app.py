@@ -27,7 +27,7 @@ def page_not_found(e):
 @app.route("/")
 @app.route("/collection")
 def collection():
-    recipes = mongo.db.recipes.find()
+    recipes = list(mongo.db.recipes.find())
     return render_template("collection.html", recipes=recipes)
 
 
@@ -36,10 +36,10 @@ def index():
     return render_template("index.html")
 
 
-@app.route("/recipes/<recipe>")
-def recipes(recipe):
-    if recipe:
-        return render_template("recipes.html", recipe=recipe)
+@app.route("/select_recipe/<recipe_id>")
+def select_recipe(recipe_id):
+    sel_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    return render_template("recipes.html", recipe=sel_recipe)
 
 
 @app.route("/search")
