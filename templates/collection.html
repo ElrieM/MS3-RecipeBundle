@@ -25,7 +25,7 @@
                 <th scope="col">Cuisine</th>
                 <th scope="col">Meal type</th>
                 <th scope="col">Diet</th>
-                <th scope="col">Details</th>
+                <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
@@ -37,6 +37,9 @@
                 <td>{{ recipe.diet }}</td>
                 <td>
                     <a href="{{ url_for('select_recipe', recipe_id=recipe._id)}}" class="btn-small">View</a>
+                </td>
+                <td>
+                    <a href="{{ url_for('edit_recipe', recipe_id=recipe._id)}}" class="btn-small">Edit</a>
                 </td>
                 {% endfor %}
             </tr>
