@@ -15,18 +15,33 @@
             <input class="text-center" type="text" id="search-col" name="search-col" placeholder="Search">
         </a>
     </div>
-    <div class="row">
-        <ul>
+</div>
+<!-- Adapted from https://getbootstrap.com/docs/5.1/content/tables/ -->
+<div class="container">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Recipe</th>
+                <th scope="col">Cuisine</th>
+                <th scope="col">Meal type</th>
+                <th scope="col">Diet</th>
+                <th scope="col">Details</th>
+            </tr>
+        </thead>
+        <tbody>
             {% for recipe in recipes %}
-            <li class="col-8">
-                {{ recipe.recipe_name }}
-                <a href="{{ url_for('select_recipe', recipe_id=recipe._id)}}" class="btn-small">View</a>
-            </li>
-            {% endfor %}
-        </ul>
-
-    </div>
-
+            <tr>
+                <td>{{ recipe.recipe_name }}</td>
+                <td>{{ recipe.cuisine }}</td>
+                <td>{{ recipe.type }}</td>
+                <td>{{ recipe.diet }}</td>
+                <td>
+                    <a href="{{ url_for('select_recipe', recipe_id=recipe._id)}}" class="btn-small">View</a>
+                </td>
+                {% endfor %}
+            </tr>
+        </tbody>
+    </table>
 </div>
 
 {% endblock %}
