@@ -10,9 +10,18 @@
                 <p class="col">Active time: {{ recipe.active_time }}</p>
             </div>
             <img id="recipe-image" src="{{ url_for('static', filename='images/header-bg.jpg') }}">
-            <p>Meal type: {{ recipe.type }}</p>
-            <p>Diet: {{ recipe.diet }}</p>
-            <p>Cuisine: {{ recipe.cuisine }}</p>
+            <div class="row">
+                <div class="col-sm-6">
+                    <p>Meal type: {{ recipe.type }}</p>
+                    <p>Diet: {{ recipe.diet }}</p>
+                    <p>Cuisine: {{ recipe.cuisine }}</p>
+                </div>
+                <div class="col-sm-6">
+                    <button class="btn btn-primary">
+                        <a href="{{ url_for('edit_recipe', recipe_id=recipe._id)}}" class="btn-small">Edit</a>
+                    </button>
+                </div>
+            </div>
         </div>
         <div class="col col-md-7">
             <!-- Adapted from -->
