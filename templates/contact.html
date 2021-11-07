@@ -1,8 +1,43 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <div class="container">
+<div class="container">
     <h1 class="text-center">Contact page</h1>
-    </div>
-    
+
+    <!-- Form adapted from Bootstrap 5 (https://getbootstrap.com/docs/5.1/forms/layout/) -->
+    <!-- Validation adapted from Bootstrap 5 (https://getbootstrap.com/docs/5.1/forms/validation/) -->
+    <form class="needs-validation" id="form">
+        <!-- Contact name -->
+        <div class="field">
+            <label for="from_name">Your Name</label>
+            <input type="text" class="form-control" name="from_name" id="from_name" required>
+        </div>
+        <!-- Contact email address -->
+        <div class="field">
+            <label for="from_email">Email address</label>
+            <input type="email" class="form-control" name="from_email" id="from_email" required>
+        </div>
+        <!-- Contact subject -->
+        <div class="field">
+            <label for="subject">Subject</label>
+            <input type="text" class="form-control" name="subject" id="subject">
+        </div>
+        <!-- Contact message -->
+        <div class="field">
+            <label for="message">Message</label>
+            <textarea class="form-control" aria-label="With textarea" name="message" id="message"></textarea>
+        </div>
+        <!-- Submit button -->
+        <input type="submit" id="button" value="Send Email">
+    </form>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+    <script type="text/javascript">
+        emailjs.init('user_mr0K8kcbIy3rrGRuzg2V6')
+    </script>
+
+
+</div>
+
 {% endblock %}
