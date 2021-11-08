@@ -47,24 +47,21 @@
                     <!-- Adapted from https://getbootstrap.com/docs/5.1/forms/input-group/ -->
                     <div>
                         <table class="col-sm-12">
-                            <tbody id="ingredient-list">
+                            <thead>
                                 <tr>
                                     <td class="col-sm-10">
-                                        
+                                        <label for="inputIngred">Insert ingredient</label>
+                                        <input type="text" id="inputIngred">
                                     </td>
                                     <td class="col-sm-1">
                                         <button class="btn btn-primary" type="button" id="add-ingredient"
-                                            onclick="add_ingredient()">
+                                            onclick="add_ingredient(inputIngred)">
                                             <i class="fas fa-plus"></i>
                                         </button>
                                     </td>
-                                    <td class="col-sm-1">
-                                        <button class="btn btn-primary" type="button" id="remove-ingredient"
-                                        onclick="del_ingredient(this)">
-                                            <i class="fas fa-minus"></i>
-                                        </button>
-                                    </td>
                                 </tr>
+                            </thead>
+                            <tbody id="ingredient-list">
                             </tbody>
                         </table>
                     </div>
