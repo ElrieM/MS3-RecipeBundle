@@ -36,6 +36,26 @@ def index():
     return render_template("index.html")
 
 
+@app.route("/add_recipe", methods=["GET", "POST"])
+def add_recipe():
+    if request.method == "POST":
+        recipe = {
+            "recipe_name": request.form.get("recipe_name"),
+            "cuisine": request.form.get("cuisine"),
+            "type": request.form.get("type"),
+            "diet": request.form.get("diet"),
+            "ingredients": request.form.get("ingredients"),
+            "method": request.form.get("method"),
+            "total_time": request.form.get("total_time"),
+            "active_time": request.form.get("active_time")
+        }
+        mongo.db.recipes.insert_one(recipe)
+        flash("Recipe added")
+        return redirect(url_for("collection"))
+
+    return render_template("add_recipe.html")
+
+
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
     if request.method == "POST":
