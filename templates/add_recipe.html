@@ -10,18 +10,18 @@
             <!-- Recipe name input -->
             <div class="row">
                 <label for="recipe_name" class="col-sm-2 col-form-label">Recipe name: </label>
-                <input type="text" class="form-control col-sm-10" id="recipe_name" name="recipe_name">
+                <input type="text" class="form-control col-sm-10" id="recipe_name" name="recipe_name" required>
             </div>
             <!-- Recipe total time -->
             <div class="row">
                 <div class="col-sm-6">
                     <label for="total_time" class="col-form-label">Total time: </label>
-                    <input type="text" class="form-control" id="total_time" name="total_time">
+                    <input type="text" class="form-control" id="total_time" name="total_time" required>
                 </div>
                 <!-- Recipe active time -->
                 <div class="col-sm-6">
                     <label for="active_time" class="col-form-label">Active time: </label>
-                    <input type="text" class="form-control" id="active_time" name="active_time">
+                    <input type="text" class="form-control" id="active_time" name="active_time" required>
                 </div>
             </div>
             <!-- Meal detail selectors -->
@@ -52,7 +52,7 @@
                     <table id="ingredient-list">
                         <tr>
                             <td class="col-8">
-                                <input type="text" id="inputIngred" required>
+                                <textarea type="text" id="inputIngred" required></textarea>
                             </td>
                             <div class="col">
                                 <td>
@@ -74,7 +74,7 @@
                     <table id="method-list">
                         <tr>
                             <td class="col-8">
-                                <input type="text" id="inputMethod" required>
+                                <textarea type="text" id="inputMethod" required></textarea>
                             </td>
                             <div class="col">
                                 <td>
