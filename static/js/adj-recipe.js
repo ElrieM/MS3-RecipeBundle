@@ -1,17 +1,23 @@
-function add_ingredient(inputIngred) {
+function addIngredient() {
     var table = document.getElementById('ingredient-list');
-    var rowNum = table.rows.length;
+    var rowNum = document.getElementById('ingredient-list').rows.length;
     var row = table.insertRow(rowNum);
-    var rowId = "ingr" + (rowNum);
-    var ingr = inputIngred.value;
+    var cell = row.insertCell(0);
 
-    row.innerHTML = `
-            <td id="${rowId}">${ingr}</td>
-            <td class="col-sm-1">
-                <button class="btn btn-primary" type="button" id="remove-ingredient"
-                    onclick="del_ingredient(this.id)">
-                    <i class="fas fa-minus"></i>
-                </button>
-            </td>
-    `;
+    var inputIngr = document.getElementById('inputIngred').value;
+
+    cell.innerHTML += `${inputIngr}`;
 }
+
+function delIngredient() {
+    var table = document.getElementById("ingredient-list");
+    var rowNum = table.rows.length;
+    if(rowNum > '1'){
+        var row = table.deleteRow(rowNum - 1);
+        rowNum--;
+    }
+    else {
+        alert('No ingredient to remove')
+    }
+}
+

@@ -44,45 +44,42 @@
             <div class="row">
                 <div class="col-sm-12">
                     <h2>Ingredients</h2>
-                    <!-- Adapted from https://getbootstrap.com/docs/5.1/forms/input-group/ -->
-                    <div>
-                        <table class="col-sm-12">
-                            <thead>
-                                <tr>
-                                    <td class="col-sm-10">
-                                        <label for="inputIngred">Insert ingredient</label>
-                                        <input type="text" id="inputIngred">
-                                    </td>
-                                    <td class="col-sm-1">
-                                        <button class="btn btn-primary" type="button" id="add-ingredient"
-                                            onclick="add_ingredient(inputIngred)">
-                                            <i class="fas fa-plus"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                            </thead>
-                            <tbody id="ingredient-list">
-                            </tbody>
-                        </table>
-                    </div>
+                    <table id="ingredient-list">
+                        <tr>
+                            <td class="col-8">
+                                <input type="text" id="inputIngred" required>
+                            </td>
+                            <div class="col">
+                                <td>
+                                    <input class="btn btn-primary" type="button" value="Add"
+                                        onclick="addIngredient()">
+                                </td>
+                                <td>
+                                    <input class="btn btn-primary" type="button" value="Remove"
+                                        onclick="delIngredient()">
+                                </td>
+                            </div>
+                        </tr>
+                    </table>
                 </div>
             </div>
     </div>
-    <div class="row">
-        <div class="col-sm-12">
-            <h2>Method</h2>
-            <div class="form-check">
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <h2>Method</h2>
+        <div class="form-check">
 
-            </div>
         </div>
     </div>
-    <div class="col-12">
-        <!-- Submit button, saved to MongoDB -->
-        <button type="submit" class="btn btn-primary">Save</button>
-        <!-- Cancel button, discards changes -->
-        <a href="{{ url_for('collection') }}">Cancel</a>
-    </div>
-    </form>
+</div>
+<div class="col-12">
+    <!-- Submit button, saved to MongoDB -->
+    <button type="submit" class="btn btn-primary">Save</button>
+    <!-- Cancel button, discards changes -->
+    <a href="{{ url_for('collection') }}">Cancel</a>
+</div>
+</form>
 
 </div>
 
