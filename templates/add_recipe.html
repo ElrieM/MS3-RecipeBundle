@@ -7,20 +7,24 @@
     <div id="recipeEditForm">
         <!-- Adapted from https://getbootstrap.com/docs/5.1/forms/layout/ -->
         <form class="row p-3" method="POST" action="{{ url_for('add_recipe') }}">
+            <!-- Recipe name input -->
             <div class="row">
                 <label for="recipe_name" class="col-sm-2 col-form-label">Recipe name: </label>
                 <input type="text" class="form-control col-sm-10" id="recipe_name" name="recipe_name">
             </div>
+            <!-- Recipe total time -->
             <div class="row">
                 <div class="col-sm-6">
                     <label for="total_time" class="col-form-label">Total time: </label>
                     <input type="text" class="form-control" id="total_time" name="total_time">
                 </div>
+                <!-- Recipe active time -->
                 <div class="col-sm-6">
                     <label for="active_time" class="col-form-label">Active time: </label>
                     <input type="text" class="form-control" id="active_time" name="active_time">
                 </div>
             </div>
+            <!-- Meal detail selectors -->
             <div class="row">
                 <div class="col-sm-4">
                     <label for="cuisine" class="form-label">Cuisine</label>
@@ -41,6 +45,7 @@
                     </select>
                 </div>
             </div>
+            <!-- Ingredients input -->
             <div class="row">
                 <div class="col-sm-12">
                     <h2>Ingredients</h2>
@@ -51,8 +56,7 @@
                             </td>
                             <div class="col">
                                 <td>
-                                    <input class="btn btn-primary" type="button" value="Add"
-                                        onclick="addIngredient()">
+                                    <input class="btn btn-primary" type="button" value="Add" onclick="addIngredient()">
                                 </td>
                                 <td>
                                     <input class="btn btn-primary" type="button" value="Remove"
@@ -63,24 +67,35 @@
                     </table>
                 </div>
             </div>
+            <!-- Methods input -->
+            <div class="row">
+                <div class="col-sm-12">
+                    <h2>Method</h2>
+                    <table id="method-list">
+                        <tr>
+                            <td class="col-8">
+                                <input type="text" id="inputMethod" required>
+                            </td>
+                            <div class="col">
+                                <td>
+                                    <input class="btn btn-primary" type="button" value="Add" onclick="addMethod()">
+                                </td>
+                                <td>
+                                    <input class="btn btn-primary" type="button" value="Remove" onclick="delMethod()">
+                                </td>
+                            </div>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="col-12">
+                <!-- Submit button, saved to MongoDB -->
+                <button type="submit" class="btn btn-primary">Save</button>
+                <!-- Cancel button, discards changes -->
+                <a href="{{ url_for('collection') }}">Cancel</a>
+            </div>
+        </form>
+
     </div>
-</div>
-<div class="row">
-    <div class="col-sm-12">
-        <h2>Method</h2>
-        <div class="form-check">
 
-        </div>
-    </div>
-</div>
-<div class="col-12">
-    <!-- Submit button, saved to MongoDB -->
-    <button type="submit" class="btn btn-primary">Save</button>
-    <!-- Cancel button, discards changes -->
-    <a href="{{ url_for('collection') }}">Cancel</a>
-</div>
-</form>
-
-</div>
-
-{% endblock %}
+    {% endblock %}
