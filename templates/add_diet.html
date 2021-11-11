@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container">
+    <h1 class="text-center">Add New Diet Option</h1>
+
+    <!-- Diet -->
+    <div id="dietEditForm">
+        <!-- Adapted from https://getbootstrap.com/docs/5.1/forms/layout/ -->
+        <form class="row p-3" method="POST" action="{{ url_for('add_diet') }}">
+            <!-- Diet option input -->
+            <div class="row">
+                <div class="col-12">
+                    <label for="diet_name" class="col-sm-2 col-form-label">Diet option: </label>
+                    <input type="text" class="form-control col-sm-10" id="diet_name" name="diet_name" required>
+                </div>
+            </div>
+            <!-- Submit button, saved to MongoDB -->
+            <button type="submit" class="btn btn-primary">Save</button>
+            <!-- Cancel button, discards changes -->
+            <a href="{{ url_for('admin') }}">Cancel</a>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

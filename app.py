@@ -88,6 +88,42 @@ def search():
     return render_template("search.html")
 
 
+@app.route("/add_diet", methods=["GET", "POST"])
+def add_diet():
+    if request.method == "POST":
+        new_diet = {
+            "diet_name": request.form.get("diet_name")
+        }
+        mongo.db.diets.insert_one(new_diet)
+        flash("New diet option added")
+        return redirect(url_for("admin"))
+
+    return render_template("add_diet.html")
+
+
+@app.route("/edit_diet/<diet_id>", methods=["GET", "POST"])
+def edit_diet(diet_id):
+    if request.method == "POST":
+        submit = {
+            "diet_name": request.form.get("diet_name")
+        }
+        mongo.db.diets.update({"_id": ObjectId(diet_id)}, submit)
+        flash("Diets successfully updated")
+        return redirect(url_for("admin"))
+
+    diet = mongo.db.diets.find_one({"_id": ObjectId(diet_id)})
+    return render_template("edit_diet.html", diet=diet)
+
+
+@app.route("/admin")
+def admin():
+    cuisines = list(mongo.db.cuisines.find().sort("cuisine_name", 1))
+    mealtypes = list(mongo.db.types.find().sort("mealtype_name", 1))
+    diets = list(mongo.db.diets.find().sort("diet_name", 1))
+    return render_template("admin.html", cuisines=cuisines,
+                           mealtypes=mealtypes, diets=diets)
+
+
 @app.route("/add_mealtype", methods=["GET", "POST"])
 def add_mealtype():
     if request.method == "POST":
@@ -139,14 +175,6 @@ def edit_cuisine(cuisine_id):
 
     cuisine = mongo.db.cuisines.find_one({"_id": ObjectId(cuisine_id)})
     return render_template("edit_cuisine.html", cuisine=cuisine)
-
-
-@app.route("/admin")
-def admin():
-    cuisines = list(mongo.db.cuisines.find().sort("cuisine_name", 1))
-    mealtypes = list(mongo.db.types.find().sort("mealtype_name", 1))
-    return render_template("admin.html", cuisines=cuisines,
-                           mealtypes=mealtypes)
 
 
 @app.route("/contact")
