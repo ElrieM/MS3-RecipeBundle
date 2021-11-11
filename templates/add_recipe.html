@@ -29,19 +29,28 @@
                 <div class="col-sm-4">
                     <label for="cuisine" class="form-label">Cuisine</label>
                     <select id="cuisine" name="cuisine" class="validate form-select" required>
-                        <option value="" disabled>Choose cuisine type</option>
+                        <option value="" selected disabled>Choose cuisine type</option>
+                        {% for cuisine in cuisines %}
+                            <option value="{{ cuisine.cuisine_name }}">{{ cuisine.cuisine_name }}</option>
+                        {% endfor %}
                     </select>
                 </div>
                 <div class="col-sm-4">
                     <label for="mealType" class="form-label">Meal Type</label>
                     <select id="mealType" name="mealType" class="validate form-select" required>
-                        <option value="" disabled>Choose meal type</option>
+                        <option value="" selected disabled>Choose meal type</option>
+                        {% for mealtype in mealtypes %}
+                            <option value="{{ mealtype.mealtype_name }}">{{ mealtype.mealtype_name }}</option>
+                        {% endfor %}
                     </select>
                 </div>
                 <div class="col-sm-4">
                     <label for="diet" class="form-label">Diet</label>
                     <select id="diet" name="diet" class="validate form-select" required>
                         <option value="" disabled>Choose diet type</option>
+                        {% for diet in diets %}
+                            <option value="{{ diet.diet_name }}">{{ diet.diet_name }}</option>
+                        {% endfor %}
                     </select>
                 </div>
             </div>

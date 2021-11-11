@@ -53,7 +53,11 @@ def add_recipe():
         flash("Recipe added")
         return redirect(url_for("collection"))
 
-    return render_template("add_recipe.html")
+    cuisines = mongo.db.cuisines.find().sort("cuisine_name", 1)
+    mealtypes = mongo.db.types.find().sort("mealtype_name", 1)
+    diets = mongo.db.diets.find().sort("diet_name", 1)
+    return render_template("add_recipe.html", cuisines=cuisines,
+                           mealtypes=mealtypes, diets=diets)
 
 
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
