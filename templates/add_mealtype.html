@@ -2,17 +2,17 @@
 {% block content %}
 
 <div class="container">
-    <h1 class="text-center">Add New Cuisine Option</h1>
+    <h1 class="text-center">Add New Meal Type Option</h1>
 
-    <!-- Cuisines -->
-    <div id="cuisineEditForm">
+    <!-- Meal type -->
+    <div id="mealtypeEditForm">
         <!-- Adapted from https://getbootstrap.com/docs/5.1/forms/layout/ -->
-        <form class="row p-3" method="POST" action="{{ url_for('add_cuisine') }}">
-            <!-- Cuisine option input -->
+        <form class="row p-3" method="POST" action="{{ url_for('add_mealtype') }}">
+            <!-- Meal type option input -->
             <div class="row">
                 <div class="col-12">
-                    <label for="cuisine_name" class="col-sm-2 col-form-label">Cuisine option: </label>
-                    <input type="text" class="form-control col-sm-10" id="cuisine_name" name="cuisine_name" required>
+                    <label for="mealtype_name" class="col-sm-2 col-form-label">Meal type option: </label>
+                    <input type="text" class="form-control col-sm-10" id="mealtype_name" name="mealtype_name" required>
                 </div>
             </div>
             <!-- Submit button, saved to MongoDB -->
