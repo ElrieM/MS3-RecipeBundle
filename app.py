@@ -88,10 +88,36 @@ def search():
     return render_template("search.html")
 
 
+@app.route("/add_cuisine", methods=["GET", "POST"])
+def add_cuisine():
+    if request.method == "POST":
+        new_cuisine = {
+            "cuisine_name": request.form.get("cuisine_name")
+        }
+        mongo.db.cuisines.insert_one(new_cuisine)
+        flash("New cuisine option added")
+        return redirect(url_for("admin"))
+
+    return render_template("add_admin.html")
+
+
+@app.route("/edit_cuisine/<cuisine_id>", methods=["GET", "POST"])
+def edit_cuisine(cuisine_id):
+    if request.method == "POST":
+        submit = {
+            "cuisine_name": request.form.get("edit_cusine")
+        }
+        mongo.db.cuisines.update({"_id": ObjectId(cuisine_id)}, submit)
+        flash("Cuisine successfully updated")
+
+    cuisine = mongo.db.cuisines.find_one({"_id": ObjectId(cuisine_id)})
+    return render_template("edit_admin.html", cuisine=cuisine)
+
+
 @app.route("/admin")
 def admin():
-    cuisines = list(mongo.db.recipes.find())
-    return render_template("admin.html", cuisines = cuisines)
+    cuisines = list(mongo.db.cuisines.find().sort("cuisine_name", 1))
+    return render_template("admin.html", cuisines=cuisines)
 
 
 @app.route("/contact")

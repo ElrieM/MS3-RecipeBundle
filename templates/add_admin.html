@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container">
+    <h1 class="text-center">Add New Option</h1>
+
+    <div id="recipeEditForm">
+        <!-- Adapted from https://getbootstrap.com/docs/5.1/forms/layout/ -->
+        <form class="row p-3" method="POST" action="{{ url_for('add_cuisine') }}">
+            <!-- Recipe name input -->
+            <div class="row">
+                <div class="col-12">
+                    <label for="cuisine_name" class="col-sm-2 col-form-label">Cuisine option: </label>
+                    <input type="text" class="form-control col-sm-10" id="cuisine_name" name="cuisine_name" required>
+                </div>
+            </div>
+            <!-- Submit button, saved to MongoDB -->
+            <button type="submit" class="btn btn-primary">Save</button>
+            <!-- Cancel button, discards changes -->
+            <a href="{{ url_for('admin') }}">Cancel</a>
+    </div>
+    </form>
+
+</div>
+
+{% endblock %}
