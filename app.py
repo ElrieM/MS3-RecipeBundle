@@ -88,6 +88,32 @@ def search():
     return render_template("search.html")
 
 
+@app.route("/add_mealtype", methods=["GET", "POST"])
+def add_mealtype():
+    if request.method == "POST":
+        new_mealtype = {
+            "mealtype_name": request.form.get("mealtype_name")
+        }
+        mongo.db.cuisines.insert_one(new_mealtype)
+        flash("New meal type option added")
+        return redirect(url_for("admin"))
+
+    return render_template("add_admin.html")
+
+
+@app.route("/edit_mealtype/<mealtype_id>", methods=["GET", "POST"])
+def edit_mealtype(mealtype_id):
+    if request.method == "POST":
+        submit = {
+            "mealtype_name": request.form.get("edit_mealtype")
+        }
+        mongo.db.types.update({"_id": ObjectId(mealtype_id)}, submit)
+        flash("Meal type successfully updated")
+
+    mealtype = mongo.db.types.find_one({"_id": ObjectId(mealtype_id)})
+    return render_template("edit_admin.html", mealtype=mealtype)
+
+
 @app.route("/add_cuisine", methods=["GET", "POST"])
 def add_cuisine():
     if request.method == "POST":
@@ -105,10 +131,11 @@ def add_cuisine():
 def edit_cuisine(cuisine_id):
     if request.method == "POST":
         submit = {
-            "cuisine_name": request.form.get("edit_cusine")
+            "cuisine_name": request.form.get("cuisine_name")
         }
         mongo.db.cuisines.update({"_id": ObjectId(cuisine_id)}, submit)
         flash("Cuisine successfully updated")
+        return redirect(url_for("admin"))
 
     cuisine = mongo.db.cuisines.find_one({"_id": ObjectId(cuisine_id)})
     return render_template("edit_admin.html", cuisine=cuisine)
@@ -117,7 +144,9 @@ def edit_cuisine(cuisine_id):
 @app.route("/admin")
 def admin():
     cuisines = list(mongo.db.cuisines.find().sort("cuisine_name", 1))
-    return render_template("admin.html", cuisines=cuisines)
+    mealtypes = list(mongo.db.types.find().sort("mealtype_name", 1))
+    return render_template("admin.html", cuisines=cuisines,
+                           mealtypes=mealtypes)
 
 
 @app.route("/contact")
