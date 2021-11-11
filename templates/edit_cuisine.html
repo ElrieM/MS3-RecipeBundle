@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container">
+    <h1 class="text-center">Edit Cuisine:</h1>
+
+    <div id="adminEditForm">
+        <!-- Adapted from https://getbootstrap.com/docs/5.1/forms/layout/ -->
+        <form class="row p-3" method="POST" action="{{ url_for('edit_cuisine', cuisine_id=cuisine._id) }}">
+            <!-- Cuisine name -->
+            <div class="row">
+                <div class="input_field col-sm-4">
+                    <label for="cuisine_name" class="form-label">Cuisine</label>
+                    <input id="cuisine_name" name="cuisine_name" type="text" class="validate"
+                        value="{{ cuisine.cuisine_name }}" required>
+                </div>
+            </div>
+            <div class="col-12">
+                <!-- Submit button, saved to MongoDB -->
+                <button type="submit" class="btn btn-primary">Save</button>
+                <!-- Cancel button, discards changes -->
+                <a href="{{ url_for('admin') }}">Cancel</a>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}
