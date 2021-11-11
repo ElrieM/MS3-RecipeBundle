@@ -46,20 +46,28 @@
             </div>
             <div class="row">
                 <div class="col-sm-12">
-                    {% for ingredient in recipe.ingredients %}
-                    <ul>
-                        <li>{{ ingredient }}</li>
-                    </ul>
-                    {% endfor %}
+                    <h2>Ingredients</h2>
+                    <div class="form-check">
+                        {% for ingredient in recipe.ingredients %}
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            {{ ingredient }}
+                        </label>
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-12">
-                    {% for step in recipe.method %}
-                    <ul>
-                        <li>{{ step }}</li>
-                    </ul>
-                    {% endfor %}
+                    <h2>Method</h2>
+                    <div class="form-check">
+                        {% for step in recipe.method %}
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            {{ step }}
+                        </label>
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
             <div class="col-12">
