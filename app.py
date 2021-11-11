@@ -98,20 +98,20 @@ def add_mealtype():
         flash("New meal type option added")
         return redirect(url_for("admin"))
 
-    return render_template("add_admin.html")
+    return render_template("add_mealtype.html")
 
 
 @app.route("/edit_mealtype/<mealtype_id>", methods=["GET", "POST"])
 def edit_mealtype(mealtype_id):
     if request.method == "POST":
         submit = {
-            "mealtype_name": request.form.get("edit_mealtype")
+            "mealtype_name": request.form.get("mealtype_name")
         }
         mongo.db.types.update({"_id": ObjectId(mealtype_id)}, submit)
         flash("Meal type successfully updated")
 
     mealtype = mongo.db.types.find_one({"_id": ObjectId(mealtype_id)})
-    return render_template("edit_admin.html", mealtype=mealtype)
+    return render_template("edit_mealtype.html", mealtype=mealtype)
 
 
 @app.route("/add_cuisine", methods=["GET", "POST"])
@@ -124,7 +124,7 @@ def add_cuisine():
         flash("New cuisine option added")
         return redirect(url_for("admin"))
 
-    return render_template("add_admin.html")
+    return render_template("add_cuisine.html")
 
 
 @app.route("/edit_cuisine/<cuisine_id>", methods=["GET", "POST"])
@@ -138,7 +138,7 @@ def edit_cuisine(cuisine_id):
         return redirect(url_for("admin"))
 
     cuisine = mongo.db.cuisines.find_one({"_id": ObjectId(cuisine_id)})
-    return render_template("edit_admin.html", cuisine=cuisine)
+    return render_template("edit_cuisine.html", cuisine=cuisine)
 
 
 @app.route("/admin")
