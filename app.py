@@ -94,7 +94,7 @@ def add_mealtype():
         new_mealtype = {
             "mealtype_name": request.form.get("mealtype_name")
         }
-        mongo.db.cuisines.insert_one(new_mealtype)
+        mongo.db.types.insert_one(new_mealtype)
         flash("New meal type option added")
         return redirect(url_for("admin"))
 
