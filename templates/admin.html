@@ -4,58 +4,82 @@
 <div class="container">
     <h1 class="text-center">Adminstration</h1>
 
-    <!-- Cuisine options view -->
-    <div class="row">
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th scope="col">Cuisines</th>
-                    <th scope="col">
-                        <button type="submit" class="btn btn-primary">
-                            <a href="{{ url_for('add_cuisine') }}">Add New</a>
-                        </button>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for cuisine in cuisines %}
-                <tr>
-                    <td class="col-8">{{ cuisine.cuisine_name }}</td>
-                    <td class="col-2">
-                        <a href="{{ url_for('edit_cuisine', cuisine_id=cuisine._id)}}" class="btn-small">Edit</a>
-                    </td>
-                </tr>
-            </tbody>
-            {% endfor %}
-        </table>
-    </div>
-
-
-    <!-- Meal type options view -->
-    <div class="row">
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th scope="col">Meal Type</th>
-                    <th scope="col">
-                        <button type="submit" class="btn btn-primary">
-                            <a href="{{ url_for('add_mealtype') }}">Add New</a>
-                        </button>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for mealtype in mealtypes %}
-                <tr>
-                    <td class="col-8">{{ mealtype.mealtype_name }}</td>
-                    <td class="col-2">
-                        <a href="{{ url_for('edit_mealtype', mealtype_id=mealtype._id)}}" class="btn-small">Edit</a>
-                    </td>
-                </tr>
-            </tbody>
-            {% endfor %}
-        </table>
+    <!-- Adapted from https://getbootstrap.com/docs/5.1/components/accordion/ -->
+    <div class="accordion" id="accordionAdmin">
+        <div class="accordion-item">
+            <!-- Cuisine options view -->
+            <h2 class="accordion-header" id="headingOneAdmin">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                    aria-expanded="true" aria-controls="collapseOne">
+                    Cuisines
+                </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOneAdmin"
+                data-bs-parent="#accordionAdmin">
+                <div class="accordion-body">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col"></th>
+                                <th scope="col">
+                                    <button type="submit" class="btn btn-primary">
+                                        <a href="{{ url_for('add_cuisine') }}">Add New</a>
+                                    </button>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for cuisine in cuisines %}
+                            <tr>
+                                <td class="col-8">{{ cuisine.cuisine_name }}</td>
+                                <td class="col-2">
+                                    <a href="{{ url_for('edit_cuisine', cuisine_id=cuisine._id)}}"
+                                        class="btn-small">Edit</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <!-- Meal type options view -->
+            <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Meal Types
+                </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                data-bs-parent="#accordionAdmin">
+                <div class="accordion-body">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">Meal Type</th>
+                                <th scope="col">
+                                    <button type="submit" class="btn btn-primary">
+                                        <a href="{{ url_for('add_mealtype') }}">Add New</a>
+                                    </button>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for mealtype in mealtypes %}
+                            <tr>
+                                <td class="col-8">{{ mealtype.mealtype_name }}</td>
+                                <td class="col-2">
+                                    <a href="{{ url_for('edit_mealtype', mealtype_id=mealtype._id)}}"
+                                        class="btn-small">Edit</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
-
 {% endblock %}
