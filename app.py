@@ -88,6 +88,12 @@ def search():
     return render_template("search.html")
 
 
+@app.route("/admin")
+def admin():
+    cuisines = list(mongo.db.recipes.find())
+    return render_template("admin.html", cuisines = cuisines)
+
+
 @app.route("/contact")
 def contact():
     return render_template("contact.html")

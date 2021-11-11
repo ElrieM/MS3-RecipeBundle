@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container">
+    <h1 class="text-center">Adminstration</h1>
+
+    <h2>Cuisines</h2>
+
+    <div class="row">
+        <ul>
+            {% for cuisine in cuisines %}
+                <li>{{ cuisine.cuisine }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+</div>
+
+{% endblock %}
