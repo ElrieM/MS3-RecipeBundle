@@ -42,7 +42,7 @@ def add_recipe():
         recipe = {
             "recipe_name": request.form.get("recipe_name"),
             "cuisine": request.form.get("cuisine"),
-            "type": request.form.get("type"),
+            "type": request.form.get("mealType"),
             "diet": request.form.get("diet"),
             "ingredients": request.form.get("ingredients"),
             "method": request.form.get("method"),
@@ -79,6 +79,13 @@ def edit_recipe(recipe_id):
 
     update_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     return render_template("edit_recipe.html", recipe=update_recipe)
+
+
+@app.route("/delete_recipe/<recipe_id>")
+def delete_recipe(recipe_id):
+    mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
+    flash("Recipe successfully deleted")
+    return redirect(url_for("collection"))
 
 
 @app.route("/select_recipe/<recipe_id>")
@@ -119,13 +126,10 @@ def edit_diet(diet_id):
     return render_template("edit_diet.html", diet=diet)
 
 
-@app.route("/admin")
-def admin():
-    cuisines = list(mongo.db.cuisines.find().sort("cuisine_name", 1))
-    mealtypes = list(mongo.db.types.find().sort("mealtype_name", 1))
-    diets = list(mongo.db.diets.find().sort("diet_name", 1))
-    return render_template("admin.html", cuisines=cuisines,
-                           mealtypes=mealtypes, diets=diets)
+@app.route("/delete_diet/<diet_id>", methods=["GET", "POST"])
+def delete_diet(diet_id):
+    mongo.db.diets.remove({"_id": ObjectId(diet_id)})
+    flash("Diets successfully removed")
 
 
 @app.route("/add_mealtype", methods=["GET", "POST"])
@@ -154,6 +158,12 @@ def edit_mealtype(mealtype_id):
     return render_template("edit_mealtype.html", mealtype=mealtype)
 
 
+@app.route("/delete_mealtype/<mealtype_id>", methods=["GET", "POST"])
+def delete_mealtype(mealtype_id):
+    mongo.db.types.remove({"_id": ObjectId(mealtype_id)})
+    flash("Meal type successfully removed")
+
+
 @app.route("/add_cuisine", methods=["GET", "POST"])
 def add_cuisine():
     if request.method == "POST":
@@ -179,6 +189,21 @@ def edit_cuisine(cuisine_id):
 
     cuisine = mongo.db.cuisines.find_one({"_id": ObjectId(cuisine_id)})
     return render_template("edit_cuisine.html", cuisine=cuisine)
+
+
+@app.route("/delete_cuisine/<cuisine_id>", methods=["GET", "POST"])
+def delete_cuisine(cuisine_id):
+    mongo.db.cuisines.remove({"_id": ObjectId(cuisine_id)})
+    flash("Cuisine successfully removed")
+
+
+@app.route("/admin")
+def admin():
+    cuisines = list(mongo.db.cuisines.find().sort("cuisine_name", 1))
+    mealtypes = list(mongo.db.types.find().sort("mealtype_name", 1))
+    diets = list(mongo.db.diets.find().sort("diet_name", 1))
+    return render_template("admin.html", cuisines=cuisines,
+                           mealtypes=mealtypes, diets=diets)
 
 
 @app.route("/contact")
