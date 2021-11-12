@@ -42,9 +42,11 @@
                         </li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4"
                                 href="{{ url_for('search') }}">Search</a></li>
-                        <!-- Administrator view -->
+                        <!-- Administrator view, only visible to Admin -->
+                        {% if session.user == "Admin" %}
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4"
                                 href="{{ url_for('admin') }}">Administrator</a></li>
+                        {% endif %}
                         <!-- My Collection only visible to logged in user -->
                         {% if session.user %}
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4"
