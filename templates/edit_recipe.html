@@ -30,9 +30,10 @@
                 <div class="col-sm-4">
                     <label for="cuisine" class="form-label">Cuisine</label>
                     <select id="cuisine" name="cuisine" class="validate form-select" required>
+                        <option value="" disabled>Choose cuisine type</option>
                         {% for cuisine in cuisines %}
                         {% if cuisine.cuisine_name == recipe.cuisine %}
-                        <option value="{{ cuisine.cuisine_name }}" selected disabled>{{ cuisine.cuisine_name }}</option>
+                        <option value="{{ cuisine.cuisine_name }}" selected>{{ cuisine.cuisine_name }}</option>
                         {% else %}
                         <option value="{{ cuisine.cuisine_name }}">{{ cuisine.cuisine_name }}</option>
                         {% endif %}
@@ -42,10 +43,10 @@
                 <div class="col-sm-4">
                     <label for="mealType" class="form-label">Meal Type</label>
                     <select id="mealType" name="mealType" class="validate form-select" required>
+                        <option value="" disabled>Choose meal type</option>
                         {% for mealtype in mealtypes %}
                         {% if mealtype.mealtype_name == recipe.type %}
-                        <option value="{{ mealtype.mealtype_name }}" selected disabled>{{ mealtype.mealtype_name }}
-                        </option>
+                        <option value="{{ mealtype.mealtype_name }}" selected>{{ mealtype.mealtype_name }}</option>
                         {% else %}
                         <option value="{{ mealtype.mealtype_name }}">{{ mealtype.mealtype_name }}</option>
                         {% endif %}
@@ -55,9 +56,10 @@
                 <div class="col-sm-4">
                     <label for="diet" class="form-label">Diet</label>
                     <select id="diet" name="diet" class="validate form-select" required>
+                        <option value="" disabled>Choose diet type</option>
                         {% for diet in diets %}
                         {% if diet.diet_name == recipe.diet %}
-                        <option value="{{ recipe.diet }}" selected disabled>{{ recipe.diet }}</option>
+                        <option value="{{ diet.diet_name }}" selected>{{ diet.diet_name }}</option>
                         {% else %}
                         <option value="{{ diet.diet_name }}">{{ diet.diet_name }}</option>
                         {% endif %}
