@@ -44,8 +44,8 @@ def add_recipe():
             "cuisine": request.form.get("cuisine"),
             "type": request.form.get("mealType"),
             "diet": request.form.get("diet"),
-            "ingredients": request.form.get("ingredients"),
-            "method": request.form.get("method"),
+            "ingredients": request.form.getlist("ingredients[]"),
+            "method": request.form.getlist("method[]"),
             "total_time": request.form.get("total_time"),
             "active_time": request.form.get("active_time")
         }
@@ -68,17 +68,21 @@ def edit_recipe(recipe_id):
             "cuisine": request.form.get("cuisine"),
             "type": request.form.get("type"),
             "diet": request.form.get("diet"),
-            "ingredients": request.form.get("ingredients"),
-            "method": request.form.get("method"),
+            "ingredients": request.form.getlist("ingredients[]"),
+            "method": request.form.getlist("method[]"),
             "total_time": request.form.get("total_time"),
             "active_time": request.form.get("active_time")
         }
-
         mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, submit)
         flash("Recipe changes saved")
 
     update_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-    return render_template("edit_recipe.html", recipe=update_recipe)
+    cuisines = mongo.db.cuisines.find().sort("cuisine_name", 1)
+    mealtypes = mongo.db.types.find().sort("mealtype_name", 1)
+    diets = mongo.db.diets.find().sort("diet_name", 1)
+    return render_template("edit_recipe.html", cuisines=cuisines,
+                           mealtypes=mealtypes, diets=diets,
+                           recipe=update_recipe)
 
 
 @app.route("/delete_recipe/<recipe_id>")

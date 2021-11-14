@@ -8,9 +8,11 @@
         <!-- Adapted from https://getbootstrap.com/docs/5.1/forms/layout/ -->
         <form class="row p-3" method="POST" action="{{ url_for('edit_recipe', recipe_id=recipe._id) }}">
             <div class="row">
-                <label for="recipe_name" class="col-sm-2 col-form-label">Recipe name: </label>
-                <input type="text" class="form-control col-sm-10" id="recipe_name" name="recipe_name"
-                    value="{{ recipe.recipe_name }}">
+                <div>
+                    <label for="recipe_name" class="col-sm-2 col-form-label">Recipe name: </label>
+                    <input type="text" class="form-control col-sm-10" id="recipe_name" name="recipe_name"
+                        value="{{ recipe.recipe_name }}">
+                </div>
             </div>
             <div class="row">
                 <div class="col-sm-6">
@@ -28,19 +30,38 @@
                 <div class="col-sm-4">
                     <label for="cuisine" class="form-label">Cuisine</label>
                     <select id="cuisine" name="cuisine" class="validate form-select" required>
-                        <option value="" disabled>Choose cuisine type</option>
+                        {% for cuisine in cuisines %}
+                        {% if cuisine.cuisine_name == recipe.cuisine %}
+                        <option value="{{ cuisine.cuisine_name }}" selected disabled>{{ cuisine.cuisine_name }}</option>
+                        {% else %}
+                        <option value="{{ cuisine.cuisine_name }}">{{ cuisine.cuisine_name }}</option>
+                        {% endif %}
+                        {% endfor %}
                     </select>
                 </div>
                 <div class="col-sm-4">
                     <label for="mealType" class="form-label">Meal Type</label>
                     <select id="mealType" name="mealType" class="validate form-select" required>
-                        <option value="" disabled>Choose meal type</option>
+                        {% for mealtype in mealtypes %}
+                        {% if mealtype.mealtype_name == recipe.type %}
+                        <option value="{{ mealtype.mealtype_name }}" selected disabled>{{ mealtype.mealtype_name }}
+                        </option>
+                        {% else %}
+                        <option value="{{ mealtype.mealtype_name }}">{{ mealtype.mealtype_name }}</option>
+                        {% endif %}
+                        {% endfor %}
                     </select>
                 </div>
                 <div class="col-sm-4">
                     <label for="diet" class="form-label">Diet</label>
                     <select id="diet" name="diet" class="validate form-select" required>
-                        <option value="" disabled>Choose diet type</option>
+                        {% for diet in diets %}
+                        {% if diet.diet_name == recipe.diet %}
+                        <option value="{{ recipe.diet }}" selected disabled>{{ recipe.diet }}</option>
+                        {% else %}
+                        <option value="{{ diet.diet_name }}">{{ diet.diet_name }}</option>
+                        {% endif %}
+                        {% endfor %}
                     </select>
                 </div>
             </div>
