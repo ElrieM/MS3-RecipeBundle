@@ -66,7 +66,7 @@ def edit_recipe(recipe_id):
         submit = {
             "recipe_name": request.form.get("recipe_name"),
             "cuisine": request.form.get("cuisine"),
-            "type": request.form.get("type"),
+            "type": request.form.get("mealType"),
             "diet": request.form.get("diet"),
             "ingredients": request.form.getlist("ingredients[]"),
             "method": request.form.getlist("method[]"),
