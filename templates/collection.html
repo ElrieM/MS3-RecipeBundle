@@ -2,7 +2,7 @@
 {% block content %}
 
 
-<h1 class="text-center">My Recipes</h1>
+<h1 class="text-center">Recipe Collection</h1>
 
 <div id="recipe-container">
     <!-- Table of recipes -->
@@ -45,13 +45,15 @@
                     <td>{{ recipe.type }}</td>
                     <td>{{ recipe.diet }}</td>
                     <td>
-                        <a href="{{ url_for('select_recipe', recipe_id=recipe._id)}}" class="btn-small">View</a>
+                        <a href="{{ url_for('select_recipe', recipe_id=recipe._id)}}"
+                            class="btn-small btn-link"><i class="far fa-eye"></i></a>
                     </td>
                     <td>
-                        <a href="{{ url_for('edit_recipe', recipe_id=recipe._id)}}" class="btn-small">Edit</a>
+                        <a href="{{ url_for('edit_recipe', recipe_id=recipe._id)}}" class="btn-small btn-link"><i class="fas fa-edit"></i></a>
                     </td>
                     <td>
-                        <a href="{{ url_for('delete_recipe', recipe_id=recipe._id)}}" class="btn-small">Delete</a>
+                        <a href="{{ url_for('delete_recipe', recipe_id=recipe._id)}}"
+                            class="btn-small btn-link"><i class="fas fa-trash-alt"></i></a>
                     </td>
                     {% endfor %}
                 </tr>
@@ -67,6 +69,8 @@
                 {% endif %}
             </tbody>
         </table>
+    </div>
+    <div class="container">
         <div class="col-sm-3">
             <a href="{{ url_for('add_recipe') }}">
                 <button type="submit" class="btn btn-primary">
