@@ -27,8 +27,8 @@
     </form>
 </div>
 <!-- Adapted from https://getbootstrap.com/docs/5.1/content/tables/ -->
-<div class="container">
-    <table class="table table-hover">
+<div class="container table-responsive">
+    <table class="table table-hover table-sm">
         <thead>
             <tr>
                 <th scope="col">Recipe</th>
@@ -41,8 +41,9 @@
 
         <tbody>
             {% if recipes|length > 0 %}
+            {% for recipe in recipes %}
             <tr>
-                {% for recipe in recipes %}
+                
                 <td>{{ recipe.recipe_name }}</td>
                 <td>{{ recipe.cuisine }}</td>
                 <td>{{ recipe.type }}</td>
