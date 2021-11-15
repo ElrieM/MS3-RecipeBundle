@@ -12223,3 +12223,9 @@ header.masthead .post-heading .meta a {
 #recipe-image {
   max-width: inherit;
 }
+
+/* Customise search table results */
+
+#error_msg {
+  color: #5F3E52;
+}

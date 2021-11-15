@@ -38,9 +38,11 @@
                 <th scope="col"></th>
             </tr>
         </thead>
+
         <tbody>
-            {% for recipe in recipes %}
+            {% if recipes|length > 0 %}
             <tr>
+                {% for recipe in recipes %}
                 <td>{{ recipe.recipe_name }}</td>
                 <td>{{ recipe.cuisine }}</td>
                 <td>{{ recipe.type }}</td>
@@ -56,6 +58,16 @@
                 </td>
                 {% endfor %}
             </tr>
+            {% else %}
+            <!-- if no parameters match search, fill out table row to keep border -->
+            <tr id="error_msg">
+                <td>No matching results</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            {% endif %}
         </tbody>
     </table>
 </div>
