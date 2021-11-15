@@ -5098,9 +5098,10 @@ fieldset:disabled .btn {
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: #fff;
+  background-color: #c4b7b5;
   background-clip: border-box;
   border: 1px solid #1F1012;
+  padding: 1rem;
 }
 
 .card>hr {
