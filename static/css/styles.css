@@ -12224,7 +12224,12 @@ header.masthead .post-heading .meta a {
   max-width: inherit;
 }
 
-/* Customise search table results */
+/* Customise recipe collection page */
+
+#recipe-table,
+#recipe-container {
+  padding-top: 2rem;
+}
 
 #error_msg {
   color: #5F3E52;

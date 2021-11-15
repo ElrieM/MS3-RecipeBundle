@@ -4,73 +4,77 @@
 
 <h1 class="text-center">My Recipes</h1>
 
-<!-- Table of recipes -->
-<div class="container">
-    <form action="{{ url_for('search') }}" method="post">
-        <div class="row">
-            <div class="col-sm-8">
-                <label for="search-col">Search recipes</label>
-                <input class="text-center validate" type="text" id="search-col" name="search-col" required>
-                <button type="submit">
-                    <i class="fas fa-search prefix"></i>
-                </button>
-                <a href="{{ url_for('collection') }}">
-                    <i class="fas fa-undo"></i>
-                </a>
+<div id="recipe-container">
+    <!-- Table of recipes -->
+    <div class="container">
+        <form action="{{ url_for('search') }}" method="post">
+            <div class="row">
+                <div class="col-sm-8">
+                    <label for="search-col">Search recipes</label>
+                    <input class="text-center validate" type="text" id="search-col" name="search-col" required>
+                    <button type="submit" class="btn-primary">
+                        <i class="fas fa-search prefix"></i>
+                    </button>
+                    <a href="{{ url_for('collection') }}">
+                        <i class="fas fa-undo"></i>
+                    </a>
+                </div>
             </div>
-            <div class="col-sm-3">
-                <button type="submit" class="btn btn-primary">
-                    <a href="{{ url_for('add_recipe') }}">Add New</a>
-                </button>
-            </div>
-        </div>
-    </form>
-</div>
-<!-- Adapted from https://getbootstrap.com/docs/5.1/content/tables/ -->
-<div class="container table-responsive">
-    <table class="table table-hover table-sm">
-        <thead>
-            <tr>
-                <th scope="col">Recipe</th>
-                <th scope="col">Cuisine</th>
-                <th scope="col">Meal type</th>
-                <th scope="col">Diet</th>
-                <th scope="col"></th>
-            </tr>
-        </thead>
+        </form>
+    </div>
+    <!-- Adapted from https://getbootstrap.com/docs/5.1/content/tables/ -->
+    <div id="recipe-table" class="container table-responsive">
+        <table class="table table-hover table-sm">
+            <thead>
+                <tr>
+                    <th scope="col">Recipe</th>
+                    <th scope="col">Cuisine</th>
+                    <th scope="col">Meal type</th>
+                    <th scope="col">Diet</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
 
-        <tbody>
-            {% if recipes|length > 0 %}
-            {% for recipe in recipes %}
-            <tr>
-                
-                <td>{{ recipe.recipe_name }}</td>
-                <td>{{ recipe.cuisine }}</td>
-                <td>{{ recipe.type }}</td>
-                <td>{{ recipe.diet }}</td>
-                <td>
-                    <a href="{{ url_for('select_recipe', recipe_id=recipe._id)}}" class="btn-small">View</a>
-                </td>
-                <td>
-                    <a href="{{ url_for('edit_recipe', recipe_id=recipe._id)}}" class="btn-small">Edit</a>
-                </td>
-                <td>
-                    <a href="{{ url_for('delete_recipe', recipe_id=recipe._id)}}" class="btn-small">Delete</a>
-                </td>
-                {% endfor %}
-            </tr>
-            {% else %}
-            <!-- if no parameters match search, fill out table row to keep border -->
-            <tr id="error_msg">
-                <td>No matching results</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            {% endif %}
-        </tbody>
-    </table>
+            <tbody>
+                {% if recipes|length > 0 %}
+                {% for recipe in recipes %}
+                <tr>
+
+                    <td>{{ recipe.recipe_name }}</td>
+                    <td>{{ recipe.cuisine }}</td>
+                    <td>{{ recipe.type }}</td>
+                    <td>{{ recipe.diet }}</td>
+                    <td>
+                        <a href="{{ url_for('select_recipe', recipe_id=recipe._id)}}" class="btn-small">View</a>
+                    </td>
+                    <td>
+                        <a href="{{ url_for('edit_recipe', recipe_id=recipe._id)}}" class="btn-small">Edit</a>
+                    </td>
+                    <td>
+                        <a href="{{ url_for('delete_recipe', recipe_id=recipe._id)}}" class="btn-small">Delete</a>
+                    </td>
+                    {% endfor %}
+                </tr>
+                {% else %}
+                <!-- if no parameters match search, fill out table row to keep border -->
+                <tr id="error_msg">
+                    <td>No matching results</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                {% endif %}
+            </tbody>
+        </table>
+        <div class="col-sm-3">
+            <a href="{{ url_for('add_recipe') }}">
+                <button type="submit" class="btn btn-primary">
+                    Add New
+                </button>
+            </a>
+        </div>
+    </div>
 </div>
 
 {% endblock %}
