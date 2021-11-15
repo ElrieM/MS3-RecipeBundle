@@ -13,7 +13,8 @@
                         <!-- User name -->
                         <div class="form-outline mb-2">
                             <input type="text" id="username" name="username" minlength="5" maxlength="15"
-                                pattern="^[a-zA-Z0-9]{5,15}$" class="form-control form-control-lg" required />
+                                pattern="^[a-zA-Z0-9]{5,15}$" class="form-control form-control-lg" 
+                                autocomplete="username" required />
                             <label class="form-label" for="username">User Name</label>
                         </div>
                         <!-- Email address -->
@@ -24,14 +25,15 @@
                         <!-- Password -->
                         <div class="form-outline mb-2">
                             <input type="password" id="password" name="password" minlength="5" maxlength="15"
-                                pattern="^[a-zA-Z0-9]{5,15}$" class="form-control form-control-lg" required />
+                                pattern="^[a-zA-Z0-9]{5,15}$" class="form-control form-control-lg" 
+                                autocomplete="new-password" required />
                             <label class="form-label" for="password">Password</label>
                         </div>
                         <!-- Repeat password -->
                         <div class="form-outline mb-2">
                             <input type="password" id="passwordRepeat" name="passwordRepeat" minlength="5"
                                 maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="form-control form-control-lg"
-                                required />
+                                autocomplete="new-passwordRepeat" required />
                             <label class="form-label" for="passwordRepeat">Repeat password</label>
                         </div>
                         <!-- Agree terms -->

@@ -14,13 +14,15 @@
             <!-- User name -->
             <div class="form-outline mb-2">
               <input type="text" id="username" name="username" minlength="5" maxlength="15"
-                pattern="^[a-zA-Z0-9]{5,15}$" class="form-control form-control-lg" required />
+                pattern="^[a-zA-Z0-9]{5,15}$" class="form-control form-control-lg" 
+                 autocomplete="username" required />
               <label class="form-label" for="username">User Name</label>
             </div>
             <!-- Password -->
             <div class="form-outline mb-2">
               <input type="password" id="password" name="password" minlength="5" maxlength="15"
-                pattern="^[a-zA-Z0-9]{5,15}$" class="form-control form-control-lg" required />
+                pattern="^[a-zA-Z0-9]{5,15}$" class="form-control form-control-lg" 
+                 autocomplete="current-password" required />
               <label class="form-label" for="password">Password</label>
             </div>
             <p class="text-center mb-2 pb-lg-1"><a class="" href="#!">Forgot password?</a></p>
