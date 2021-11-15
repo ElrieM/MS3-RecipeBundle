@@ -31,7 +31,7 @@
                     <select id="cuisine" name="cuisine" class="validate form-select" required>
                         <option value="" selected disabled>Choose cuisine type</option>
                         {% for cuisine in cuisines %}
-                            <option value="{{ cuisine.cuisine_name }}">{{ cuisine.cuisine_name }}</option>
+                        <option value="{{ cuisine.cuisine_name }}">{{ cuisine.cuisine_name }}</option>
                         {% endfor %}
                     </select>
                 </div>
@@ -40,7 +40,7 @@
                     <select id="mealType" name="mealType" class="validate form-select" required>
                         <option value="" selected disabled>Choose meal type</option>
                         {% for mealtype in mealtypes %}
-                            <option value="{{ mealtype.mealtype_name }}">{{ mealtype.mealtype_name }}</option>
+                        <option value="{{ mealtype.mealtype_name }}">{{ mealtype.mealtype_name }}</option>
                         {% endfor %}
                     </select>
                 </div>
@@ -49,7 +49,7 @@
                     <select id="diet" name="diet" class="validate form-select" required>
                         <option value="" disabled>Choose diet type</option>
                         {% for diet in diets %}
-                            <option value="{{ diet.diet_name }}">{{ diet.diet_name }}</option>
+                        <option value="{{ diet.diet_name }}">{{ diet.diet_name }}</option>
                         {% endfor %}
                     </select>
                 </div>
@@ -58,22 +58,15 @@
             <div class="row">
                 <div class="col-sm-12">
                     <h2>Ingredients</h2>
-                    <table id="ingredient-list">
-                        <tr>
-                            <td class="col-8">
-                                <textarea type="text" id="inputIngred" required></textarea>
-                            </td>
-                            <div class="col">
-                                <td>
-                                    <input class="btn btn-primary" type="button" value="Add" onclick="addIngredient()">
-                                </td>
-                                <td>
-                                    <input class="btn btn-primary" type="button" value="Remove"
-                                        onclick="delIngredient()">
-                                </td>
-                            </div>
-                        </tr>
+                    <div>
+                        <span>
+                            <input class="col-sm-10" type="text" id="inputIngred" name="inputIngred">
+                            <input class="btn btn-primary" type="button" value="Add" onclick="addIngredient(ingrArray)" required>
+                        </span>
+                    </div>
+                    <table id="ingredient-list" name="ingredient-list">
                     </table>
+                    <input type="hidden" id="ingr-list" name="ingr-list">
                 </div>
             </div>
             <!-- Methods input -->

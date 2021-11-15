@@ -38,13 +38,15 @@ def index():
 
 @app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
+    ingr_list = request.form.getlist("ingr-list")
+
     if request.method == "POST":
         recipe = {
             "recipe_name": request.form.get("recipe_name"),
             "cuisine": request.form.get("cuisine"),
             "type": request.form.get("mealType"),
             "diet": request.form.get("diet"),
-            "ingredients": request.form.getlist("ingredients[]"),
+            "ingredients": ingr_list,
             "method": request.form.getlist("method[]"),
             "total_time": request.form.get("total_time"),
             "active_time": request.form.get("active_time")
