@@ -12234,3 +12234,20 @@ header.masthead .post-heading .meta a {
 #content-wrapper {
   margin: 2rem 0;
 }
+
+/* Customise contact form */
+#contact-form {
+  padding: 1em;
+  background-image: linear-gradient(#DCDFD1, #C4B7B5);
+  width: 90%;
+  align-self: center;
+}
+
+#contact-form label {
+  padding-top: 1rem;
+}
+
+#contact-button {
+  margin-top:1em;
+  align-items: center;
+}
