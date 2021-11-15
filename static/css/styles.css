@@ -2313,9 +2313,9 @@ progress {
 .form-control:focus {
   color: #212529;
   background-color: #fff;
-  border-color: #80c2d0;
+  border-color: #1f1012;
   outline: 0;
-  box-shadow: 0 0 0 0.25rem rgba(0, 133, 161, 0.25);
+  box-shadow: 0 0 0 0.25rem #1f1012;
 }
 
 .form-control::-webkit-date-and-time-value {
@@ -2554,9 +2554,9 @@ textarea.form-control-lg {
 }
 
 .form-select:focus {
-  border-color: #80c2d0;
+  border-color: #1f1012;
   outline: 0;
-  box-shadow: 0 0 0 0.25rem rgba(0, 133, 161, 0.25);
+  box-shadow: 0 0 0 0.25rem #1f1012;
 }
 
 .form-select[multiple],
@@ -2626,9 +2626,9 @@ textarea.form-control-lg {
 }
 
 .form-check-input:focus {
-  border-color: #80c2d0;
+  border-color: #1f1012;
   outline: 0;
-  box-shadow: 0 0 0 0.25rem rgba(0, 133, 161, 0.25);
+  box-shadow: 0 0 0 0.25rem #1f1012;
 }
 
 .form-check-input:checked {
@@ -2680,7 +2680,7 @@ textarea.form-control-lg {
 }
 
 .form-switch .form-check-input:focus {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%2380c2d0'/%3e%3c/svg%3e");
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%231f1012'/%3e%3c/svg%3e");
 }
 
 .form-switch .form-check-input:checked {
@@ -2721,11 +2721,11 @@ textarea.form-control-lg {
 }
 
 .form-range:focus::-webkit-slider-thumb {
-  box-shadow: 0 0 0 1px #fff, 0 0 0 0.25rem rgba(0, 133, 161, 0.25);
+  box-shadow: 0 0 0 1px #fff, 0 0 0 0.25rem #1f1012;
 }
 
 .form-range:focus::-moz-range-thumb {
-  box-shadow: 0 0 0 1px #fff, 0 0 0 0.25rem rgba(0, 133, 161, 0.25);
+  box-shadow: 0 0 0 1px #fff, 0 0 0 0.25rem #1f1012;
 }
 
 .form-range::-moz-focus-outer {
@@ -3220,7 +3220,7 @@ textarea.form-control.is-invalid {
 .btn-check:focus+.btn,
 .btn:focus {
   outline: 0;
-  box-shadow: 0 0 0 0.25rem rgba(0, 133, 161, 0.25);
+  box-shadow: 0 0 0 0.25rem #1f1012;
 }
 
 .btn:disabled,
@@ -5218,7 +5218,7 @@ fieldset:disabled .btn {
   font-size: 1rem;
   color: #212529;
   text-align: left;
-  background-color: #dcdfd1;
+  background-image: linear-gradient(#786779);
   border: 0;
   overflow-anchor: none;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, border-radius 0.15s ease;
@@ -5265,9 +5265,9 @@ fieldset:disabled .btn {
 
 .accordion-button:focus {
   z-index: 3;
-  border-color: #80c2d0;
+  border-color: #1f1012;
   outline: 0;
-  box-shadow: 0 0 0 0.25rem rgba(0, 133, 161, 0.25);
+  box-shadow: 0 0 0 0.25rem #1f1012;
 }
 
 .accordion-header {
@@ -5362,7 +5362,7 @@ fieldset:disabled .btn {
   color: #5F3E52;
   background-color: #e9ecef;
   outline: 0;
-  box-shadow: 0 0 0 0.25rem rgba(0, 133, 161, 0.25);
+  box-shadow: 0 0 0 0.25rem #1f1012;
 }
 
 .page-item:not(:first-child) .page-link {
@@ -5929,7 +5929,7 @@ fieldset:disabled .btn {
 
 .btn-close:focus {
   outline: 0;
-  box-shadow: 0 0 0 0.25rem rgba(0, 133, 161, 0.25);
+  box-shadow: 0 0 0 0.25rem #1f1012;
   opacity: 1;
 }
 

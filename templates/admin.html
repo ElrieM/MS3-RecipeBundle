@@ -2,15 +2,15 @@
 {% block content %}
 
 <div class="container">
-    <h1 class="text-center">Adminstration</h1>
+    <h1 class="text-center">Administration</h1>
 
     <!-- Adapted from https://getbootstrap.com/docs/5.1/components/accordion/ -->
     <div class="accordion" id="accordionAdmin">
         <div class="accordion-item">
             <!-- Cuisine options view -->
             <h2 class="accordion-header" id="headingOneAdmin">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
-                    aria-expanded="true" aria-controls="collapseOne">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                     Cuisines
                 </button>
             </h2>
@@ -22,9 +22,11 @@
                             <tr>
                                 <th scope="col"></th>
                                 <th scope="col">
-                                    <button type="submit" class="btn btn-primary">
-                                        <a href="{{ url_for('add_cuisine') }}">Add New</a>
-                                    </button>
+                                    <a href="{{ url_for('add_cuisine') }}">
+                                        <button type="submit" class="btn btn-primary btn-small">
+                                            Add
+                                        </button>
+                                    </a>
                                 </th>
                             </tr>
                         </thead>
@@ -34,7 +36,9 @@
                                 <td class="col-8">{{ cuisine.cuisine_name }}</td>
                                 <td class="col-2">
                                     <a href="{{ url_for('edit_cuisine', cuisine_id=cuisine._id)}}"
-                                        class="btn-small">Edit</a>
+                                        class="btn-small btn-link">Edit</a>
+                                    <a href="{{ url_for('delete_cuisine', cuisine_id=cuisine._id)}}"
+                                        class="btn-small btn-link">Delete</a>
                                 </td>
                             </tr>
                         </tbody>
@@ -59,9 +63,9 @@
                             <tr>
                                 <th scope="col">Meal Type</th>
                                 <th scope="col">
-                                    <button type="submit" class="btn btn-primary">
-                                        <a href="{{ url_for('add_mealtype') }}">Add New</a>
-                                    </button>
+                                    <a href="{{ url_for('add_mealtype') }}">
+                                        <button type="submit" class="btn btn-primary btn-small">Add</button>
+                                    </a>
                                 </th>
                             </tr>
                         </thead>
@@ -71,7 +75,9 @@
                                 <td class="col-8">{{ mealtype.mealtype_name }}</td>
                                 <td class="col-2">
                                     <a href="{{ url_for('edit_mealtype', mealtype_id=mealtype._id)}}"
-                                        class="btn-small">Edit</a>
+                                        class="btn-small btn-link">Edit</a>
+                                    <a href="{{ url_for('delete_mealtype', mealtype_id=mealtype._id)}}"
+                                        class="btn-small btn-link">Delete</a>
                                 </td>
                             </tr>
                         </tbody>
@@ -96,9 +102,11 @@
                             <tr>
                                 <th scope="col">Diet</th>
                                 <th scope="col">
-                                    <button type="submit" class="btn btn-primary">
-                                        <a href="{{ url_for('add_diet') }}">Add New</a>
-                                    </button>
+                                    <a href="{{ url_for('add_diet') }}">
+                                        <button type="submit" class="btn btn-primary btn-small">
+                                            Add
+                                        </button>
+                                    </a>
                                 </th>
                             </tr>
                         </thead>
@@ -107,7 +115,10 @@
                             <tr>
                                 <td class="col-8">{{ diet.diet_name }}</td>
                                 <td class="col-2">
-                                    <a href="{{ url_for('edit_diet', diet_id=diet._id)}}" class="btn-small">Edit</a>
+                                    <a href="{{ url_for('edit_diet', diet_id=diet._id)}}"
+                                        class="btn-small btn-link">Edit</a>
+                                    <a href="{{ url_for('delete_diet', diet_id=diet._id)}}"
+                                        class="btn-small btn-link">Delete</a>
                                 </td>
                             </tr>
                             {% endfor %}

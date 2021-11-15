@@ -138,6 +138,7 @@ def edit_diet(diet_id):
 def delete_diet(diet_id):
     mongo.db.diets.remove({"_id": ObjectId(diet_id)})
     flash("Diets successfully removed")
+    return redirect(url_for("admin"))
 
 
 @app.route("/add_mealtype", methods=["GET", "POST"])
@@ -161,6 +162,7 @@ def edit_mealtype(mealtype_id):
         }
         mongo.db.types.update({"_id": ObjectId(mealtype_id)}, submit)
         flash("Meal type successfully updated")
+        return redirect(url_for("admin"))
 
     mealtype = mongo.db.types.find_one({"_id": ObjectId(mealtype_id)})
     return render_template("edit_mealtype.html", mealtype=mealtype)
@@ -170,6 +172,7 @@ def edit_mealtype(mealtype_id):
 def delete_mealtype(mealtype_id):
     mongo.db.types.remove({"_id": ObjectId(mealtype_id)})
     flash("Meal type successfully removed")
+    return redirect(url_for("admin"))
 
 
 @app.route("/add_cuisine", methods=["GET", "POST"])
@@ -203,6 +206,7 @@ def edit_cuisine(cuisine_id):
 def delete_cuisine(cuisine_id):
     mongo.db.cuisines.remove({"_id": ObjectId(cuisine_id)})
     flash("Cuisine successfully removed")
+    return redirect(url_for("admin"))
 
 
 @app.route("/admin")
