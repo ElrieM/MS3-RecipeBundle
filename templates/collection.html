@@ -6,15 +6,25 @@
 
 <!-- Table of recipes -->
 <div class="container">
-    <div class="row">
-        <button type="submit" class="col-2 btn btn-primary">
-            <a href="{{ url_for('add_recipe') }}">Add New</a>
-        </button>
-        <a class="col-10">
-            <i class="fas fa-search prefix"></i>
-            <input class="text-center" type="text" id="search-col" name="search-col" placeholder="Search">
-        </a>
-    </div>
+    <form action="{{ url_for('search') }}" method="post">
+        <div class="row">
+            <div class="col-sm-8">
+                <label for="search-col">Search recipes</label>
+                <input class="text-center validate" type="text" id="search-col" name="search-col" required>
+                <button type="submit">
+                    <i class="fas fa-search prefix"></i>
+                </button>
+                <a href="{{ url_for('collection') }}">
+                    <i class="fas fa-undo"></i>
+                </a>
+            </div>
+            <div class="col-sm-3">
+                <button type="submit" class="btn btn-primary">
+                    <a href="{{ url_for('add_recipe') }}">Add New</a>
+                </button>
+            </div>
+        </div>
+    </form>
 </div>
 <!-- Adapted from https://getbootstrap.com/docs/5.1/content/tables/ -->
 <div class="container">

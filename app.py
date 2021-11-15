@@ -100,9 +100,11 @@ def select_recipe(recipe_id):
     return render_template("recipes.html", recipe=sel_recipe)
 
 
-@app.route("/search")
+@app.route("/search", methods=["GET", "POST"])
 def search():
-    return render_template("search.html")
+    query = request.form.get("search-col")
+    recipes = list(mongo.db.recipes.find({"$text": {"$search": query}}))
+    return render_template("collection.html", recipes=recipes)
 
 
 @app.route("/add_diet", methods=["GET", "POST"])
