@@ -47,7 +47,7 @@
                 <div class="col-sm-4">
                     <label for="diet" class="form-label">Diet</label>
                     <select id="diet" name="diet" class="validate form-select" required>
-                        <option value="" disabled>Choose diet type</option>
+                        <option value="" disabled selected>Choose diet type</option>
                         {% for diet in diets %}
                         <option value="{{ diet.diet_name }}">{{ diet.diet_name }}</option>
                         {% endfor %}
@@ -61,7 +61,8 @@
                     <div>
                         <span>
                             <input class="col-sm-10" type="text" id="inputIngred" name="inputIngred">
-                            <input class="btn btn-primary" type="button" value="Add" onclick="addIngredient(ingrArray)" required>
+                            <input class="btn btn-primary" type="button" value="Add" onclick="addIngredient(ingrArray)"
+                                required>
                         </span>
                     </div>
                     <table id="ingredient-list" name="ingredient-list">
@@ -73,21 +74,16 @@
             <div class="row">
                 <div class="col-sm-12">
                     <h2>Method</h2>
-                    <table id="method-list">
-                        <tr>
-                            <td class="col-8">
-                                <textarea type="text" id="inputMethod" required></textarea>
-                            </td>
-                            <div class="col">
-                                <td>
-                                    <input class="btn btn-primary" type="button" value="Add" onclick="addMethod()">
-                                </td>
-                                <td>
-                                    <input class="btn btn-primary" type="button" value="Remove" onclick="delMethod()">
-                                </td>
-                            </div>
-                        </tr>
+                    <div>
+                        <span>
+                            <input class="col-sm-10" type="text" id="inputMethod" name="inputMethod">
+                            <input class="btn btn-primary" type="button" value="Add" onclick="addMethod(methArray)"
+                                required>
+                        </span>
+                    </div>
+                    <table id="method-list" name="method-list">
                     </table>
+                    <input type="hidden" id="method-list" name="method-list">
                 </div>
             </div>
             <div class="col-12">
