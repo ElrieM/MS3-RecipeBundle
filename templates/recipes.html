@@ -67,24 +67,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="recipeEquipHeading">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#recipeEquip" aria-expanded="false" aria-controls="recipeEquip">
-                            Equipment
-                        </button>
-                    </h2>
-                    <div id="recipeEquip" class="accordion-collapse collapse" aria-labelledby="recipeEquipHeading"
-                        data-bs-parent="#recipeAccordion">
-                        <div class="accordion-body">
-                            <ul>
-                                {% for equipment in recipe.equipment %}
-                                <li>{{ equipment }}</li>
-                                {% endfor %}
-                            </ul>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>

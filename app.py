@@ -5,6 +5,8 @@ from flask import (
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
+from werkzeug.utils import secure_filename
+import boto3
 if os.path.exists("env.py"):
     import env
 
@@ -16,6 +18,13 @@ app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
+
+s3_bucket_name = os.environ.get("AWS_BUCKET_NAME")
+s3_bucket_url = os.environ.get("AWS_DOMAIN")
+s3 = boto3.client('s3',
+                  aws_access_key_id=os.environ.get('AWS_ACCESS_KEY'),
+                  aws_secret_access_key=os.environ.get('AWS_SECRET_ACCESS_KEY')
+                  )
 
 
 @app.errorhandler(404)
@@ -34,6 +43,22 @@ def collection():
 @app.route("/index")
 def index():
     return render_template("index.html")
+
+
+@app.route('/upload', methods=['POST'])
+def upload():
+    if request.method == 'POST':
+        img = request.files['file']
+        if img:
+            filename = secure_filename(img.filename)
+            img.save(filename)
+            s3.upload_file(
+                Bucket=s3_bucket_name,
+                Filename=filename,
+                Key=filename
+            )
+            msg = "Image uploaded successfully! "
+    return render_template("add_recipe.html", msg=msg)
 
 
 @app.route("/add_recipe", methods=["GET", "POST"])
@@ -172,7 +197,6 @@ def edit_mealtype(mealtype_id):
 def delete_mealtype(mealtype_id):
     mongo.db.types.remove({"_id": ObjectId(mealtype_id)})
     flash("Meal type successfully removed")
-    return redirect(url_for("admin"))
 
 
 @app.route("/add_cuisine", methods=["GET", "POST"])
