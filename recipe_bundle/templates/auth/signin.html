@@ -9,7 +9,7 @@
     <div class="col-12 col-md-9 col-lg-7 col-xl-6">
       <div class="card" style="border-radius: 15px;">
         <div class="card-body p-3">
-          <form method="POST" action="{{ url_for('signin') }}">
+          <form method="POST" action="{{ url_for('auth.signin') }}">
             <p class="mb-2 text-center">Please enter your username and password</p>
             <!-- User name -->
             <div class="form-outline mb-2">
@@ -37,7 +37,7 @@
         <!-- Sign up for new account -->
         <p class="text-center mt-3 mb-0">
           Don't have an account?
-          <a href="{{ url_for('register') }}" class="fw-bold text-body">
+          <a href="{{ url_for('auth.register') }}" class="fw-bold text-body">
             <u>Sign up here</u>
           </a>
         </p>
