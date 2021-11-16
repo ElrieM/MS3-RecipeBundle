@@ -7,7 +7,7 @@
     <!-- Meal type -->
     <div id="mealtypeEditForm">
         <!-- Adapted from https://getbootstrap.com/docs/5.1/forms/layout/ -->
-        <form class="row p-3" method="POST" action="{{ url_for('add_mealtype') }}">
+        <form class="row p-3" method="POST" action="{{ url_for('manage.add_mealtype') }}">
             <!-- Meal type option input -->
             <div class="row">
                 <div class="col-12">
@@ -18,7 +18,7 @@
             <!-- Submit button, saved to MongoDB -->
             <button type="submit" class="btn btn-primary">Save</button>
             <!-- Cancel button, discards changes -->
-            <a href="{{ url_for('admin') }}">Cancel</a>
+            <a href="{{ url_for('manage.admin') }}">Cancel</a>
         </form>
     </div>
 </div>

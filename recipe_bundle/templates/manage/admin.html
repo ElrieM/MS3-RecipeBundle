@@ -22,7 +22,7 @@
                             <tr>
                                 <th scope="col"></th>
                                 <th scope="col">
-                                    <a href="{{ url_for('add_cuisine') }}">
+                                    <a href="{{ url_for('manage.add_cuisine') }}">
                                         <button type="submit" class="btn btn-primary btn-small">
                                             Add
                                         </button>
@@ -35,9 +35,9 @@
                             <tr>
                                 <td class="col-8">{{ cuisine.cuisine_name }}</td>
                                 <td class="col-2">
-                                    <a href="{{ url_for('edit_cuisine', cuisine_id=cuisine._id)}}"
+                                    <a href="{{ url_for('manage.edit_cuisine', cuisine_id=cuisine._id)}}"
                                         class="btn-small btn-link">Edit</a>
-                                    <a href="{{ url_for('delete_cuisine', cuisine_id=cuisine._id)}}"
+                                    <a href="{{ url_for('manage.delete_cuisine', cuisine_id=cuisine._id)}}"
                                         class="btn-small btn-link">Delete</a>
                                 </td>
                             </tr>
@@ -63,7 +63,7 @@
                             <tr>
                                 <th scope="col">Meal Type</th>
                                 <th scope="col">
-                                    <a href="{{ url_for('add_mealtype') }}">
+                                    <a href="{{ url_for('manage.add_mealtype') }}">
                                         <button type="submit" class="btn btn-primary btn-small">Add</button>
                                     </a>
                                 </th>
@@ -74,9 +74,9 @@
                             <tr>
                                 <td class="col-8">{{ mealtype.mealtype_name }}</td>
                                 <td class="col-2">
-                                    <a href="{{ url_for('edit_mealtype', mealtype_id=mealtype._id)}}"
+                                    <a href="{{ url_for('manage.edit_mealtype', mealtype_id=mealtype._id)}}"
                                         class="btn-small btn-link">Edit</a>
-                                    <a href="{{ url_for('delete_mealtype', mealtype_id=mealtype._id)}}"
+                                    <a href="{{ url_for('manage.delete_mealtype', mealtype_id=mealtype._id)}}"
                                         class="btn-small btn-link">Delete</a>
                                 </td>
                             </tr>
@@ -102,7 +102,7 @@
                             <tr>
                                 <th scope="col">Diet</th>
                                 <th scope="col">
-                                    <a href="{{ url_for('add_diet') }}">
+                                    <a href="{{ url_for('manage.add_diet') }}">
                                         <button type="submit" class="btn btn-primary btn-small">
                                             Add
                                         </button>
@@ -115,9 +115,9 @@
                             <tr>
                                 <td class="col-8">{{ diet.diet_name }}</td>
                                 <td class="col-2">
-                                    <a href="{{ url_for('edit_diet', diet_id=diet._id)}}"
+                                    <a href="{{ url_for('manage.edit_diet', diet_id=diet._id)}}"
                                         class="btn-small btn-link">Edit</a>
-                                    <a href="{{ url_for('delete_diet', diet_id=diet._id)}}"
+                                    <a href="{{ url_for('manage.delete_diet', diet_id=diet._id)}}"
                                         class="btn-small btn-link">Delete</a>
                                 </td>
                             </tr>
