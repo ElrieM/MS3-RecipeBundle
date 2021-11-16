@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <!-- Metadata -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,15 +21,16 @@
 </head>
 
 <body id="page-top">
-
     <!-- Page Header-->
     <!-- Copied and adapted from https://startbootstrap.com/theme/clean-blog -->
-    <header class="masthead" style="background-image: url('https://ms3recipebundle.s3.eu-central-1.amazonaws.com/header-bg.jpg');">
+    <header class="masthead"
+        style="background-image: url('https://ms3recipebundle.s3.eu-central-1.amazonaws.com/header-bg.jpg');">
         <!-- Navigation-->
         <!-- Copied and adapted from https://startbootstrap.com/theme/clean-blog -->
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
             <div class="container px-5">
-                <a class="navbar-brand" href="{{ url_for('index') }}">Recipe Bundle</a>
+                <a class="navbar-brand" href="{{ url_for('admin.home') }}">Recipe Bundle</a>
+                <!-- Hamburg menu button -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -36,20 +38,22 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto py-4 py-lg-0">
+                        <!-- Home page -->
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4"
-                                href="{{ url_for('index') }}">Home</a>
+                                href="{{ url_for('admin.home') }}">Home</a>
                         </li>
-                        <!-- Administrator view, only visible to Admin -->
+                        <!-- Manage recipe detail options, only visible to Admin -->
                         {% if session.user == "Admin" %}
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4"
-                                href="{{ url_for('admin') }}">Administrator</a></li>
+                                href="{{ url_for('manage.admin') }}">Administrator</a></li>
                         {% endif %}
-                        <!-- My Collection only visible to logged in user -->
+                        <!-- Collection only visible to logged in user -->
                         {% if session.user %}
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4"
-                                href="{{ url_for('collection') }}">Recipe Collection</a></li>
+                                href="{{ url_for('recipes.collection') }}">Recipe Collection</a></li>
                         {% endif %}
                         <!-- Dropdown adapted from https://getbootstrap.com/docs/5.0/components/dropdowns/ -->
+                        <!-- Dropdown menu for account admin - signin / registration / signout -->
                         <li class="nav-item dropdown">
                             <a class="nav-link px-lg-3 py-3 py-lg-4 dropdown-toggle" href="#"
                                 id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown"
@@ -60,24 +64,25 @@
                                 aria-labelledby="navbarDarkDropdownMenuLink">
                                 <!-- Sign out for logged in users only -->
                                 {% if session.user %}
-                                <li><a class="dropdown-item text-center" href="{{ url_for('signout') }}">Sign Out</a>
+                                <li><a class="dropdown-item text-center" href="{{ url_for('auth.signout') }}">Sign Out</a>
                                 </li>
+                                <!-- Signin or Register, only when no user logged in -->
                                 {% else %}
-                                <li><a class="dropdown-item text-center" href="{{ url_for('signin') }}">Sign In</a></li>
-                                <li><a class="dropdown-item text-center" href="{{ url_for('register') }}">Register</a>
+                                <li><a class="dropdown-item text-center" href="{{ url_for('auth.signin') }}">Sign In</a></li>
+                                <li><a class="dropdown-item text-center" href="{{ url_for('auth.register') }}">Register</a>
                                 </li>
                                 {% endif %}
                             </ul>
                         </li>
+                        <!-- Contact page -->
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4"
-                                href="{{ url_for('contact') }}">Contact</a></li>
+                                href="{{ url_for('cont.contact') }}">Contact</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
-
     </header>
-
+    <!-- Section for flash messages -->
     <section id="flash-message">
         <!-- Flash message -->
         <!-- Adapted from https://flask.palletsprojects.com/en/2.0.x/patterns/flashing/ -->
@@ -91,15 +96,11 @@
         {% endif %}
         {% endwith %}
     </section>
-
+    <!-- Section for rendered pages' content -->
     <section id="content-wrapper">
-
         {% block content %}
-
         {% endblock %}
-
     </section>
-
     <!-- Footer-->
     <!-- Copied and adapted from https://startbootstrap.com/theme/clean-blog -->
     <footer class="border-top">
@@ -107,24 +108,30 @@
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
                     <ul class="list-inline text-center">
+                        <!-- Link to Twitter -->
                         <li class="list-inline-item">
-                            <a aria-label="social-media-link" href="https://www.twitter.com/" target="_blank" rel="noopener">
+                            <a aria-label="social-media-link" href="https://www.twitter.com/" target="_blank"
+                                rel="noopener">
                                 <span class="fa-stack fa-lg">
                                     <i class="fas fa-circle fa-stack-2x"></i>
                                     <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
                                 </span>
                             </a>
                         </li>
+                        <!-- Link to FaceBook -->
                         <li class="list-inline-item">
-                            <a aria-label="social-media-link" href="https://www.facebook.com/" target="_blank" rel="noopener">
+                            <a aria-label="social-media-link" href="https://www.facebook.com/" target="_blank"
+                                rel="noopener">
                                 <span class="fa-stack fa-lg">
                                     <i class="fas fa-circle fa-stack-2x"></i>
                                     <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
                                 </span>
                             </a>
                         </li>
+                        <!-- Link to Pinterest -->
                         <li class="list-inline-item">
-                            <a  aria-label="social-media-link" href="https://www.pinterest.com/" target="_blank" rel="noopener">
+                            <a aria-label="social-media-link" href="https://www.pinterest.com/" target="_blank"
+                                rel="noopener">
                                 <span class="fa-stack fa-lg">
                                     <i class="fas fa-circle fa-stack-2x"></i>
                                     <i class="fab fa-pinterest-p fa-stack-1x fa-inverse"></i>
@@ -132,12 +139,13 @@
                             </a>
                         </li>
                     </ul>
+                    <!-- Copyright -->
                     <div class="small text-center fst-italic">Copyright &copy; Recipe Bundle 2021</div>
                 </div>
             </div>
         </div>
     </footer>
-
+    <!-- Scripts -->
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
