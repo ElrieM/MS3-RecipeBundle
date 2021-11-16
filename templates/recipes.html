@@ -9,7 +9,7 @@
                 <p class="col">Total time: {{ recipe.total_time }}</p>
                 <p class="col">Active time: {{ recipe.active_time }}</p>
             </div>
-            <img id="recipe-image" src="{{ url_for('static', filename='images/header-bg.jpg') }}">
+            <img id="recipe-image" src=" {{ recipe.image }}">
             <div class="row">
                 <div class="col-sm-6">
                     <p>Meal type: {{ recipe.type }}</p>
