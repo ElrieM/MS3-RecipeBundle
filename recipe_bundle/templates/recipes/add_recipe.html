@@ -9,8 +9,10 @@
         <form class="row p-3" method="POST" action="{{ url_for('recipes.add_recipe') }}">
             <!-- Recipe name input -->
             <div class="row">
-                <label for="recipe_name" class="col-sm-2 col-form-label">Recipe name: </label>
-                <input type="text" class="form-control col-sm-10" id="recipe_name" name="recipe_name" required>
+                <div>
+                    <label for="recipe_name" class="col-sm-2 col-form-label">Recipe name: </label>
+                    <input type="text" class="form-control col-sm-10" id="recipe_name" name="recipe_name" required>
+                </div>
             </div>
             <!-- Recipe total time -->
             <div class="row">
@@ -95,13 +97,15 @@
         </form>
         <!-- Image upload -->
         <!-- Adapted from https://medium.com/aws-pocket/uploading-files-to-aws-s3-with-flask-3d3d213404fb -->
-        <form action="/upload" method="post" enctype="multipart/form-data">
-            <p class="card-text">Upload a picture</p>
-            <input type="file" name="file" value="file">
-            <hr>
-            <input type="submit" name="upload" value="Upload" class="btn btn-success">
-        </form>
-        {{msg}}
+        <div class="container">
+            <form action="/upload" method="post" enctype="multipart/form-data">
+                <p class="card-text">Upload a picture</p>
+                <input type="file" name="file" value="file">
+                <hr>
+                <input type="submit" name="upload" value="Upload" class="btn btn-primary">
+            </form>
+            {{msg}}
+        </div>
 
     </div>
 
