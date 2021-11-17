@@ -12257,3 +12257,18 @@ header.masthead .post-heading .meta a {
   margin-top:1em;
   align-items: center;
 }
+
+/* Customise index page */
+.index-box {
+  background-color: #8F9A6D;
+  border: solid 2px black;
+  text-align: center;
+  padding: 2rem;
+  margin: 1px;
+}
+
+#index-block {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+}
