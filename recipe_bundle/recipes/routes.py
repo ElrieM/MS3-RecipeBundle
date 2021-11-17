@@ -30,6 +30,7 @@ def select_recipe(recipe_id):
 @recipes.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
     ingr_list = request.form.getlist("ingr-list")
+    method_list = request.form.getlist("method-list")
 
     if request.method == "POST":
         recipe = {
@@ -38,7 +39,7 @@ def add_recipe():
             "type": request.form.get("mealType"),
             "diet": request.form.get("diet"),
             "ingredients": ingr_list,
-            "method": request.form.getlist("method[]"),
+            "method": method_list,
             "total_time": request.form.get("total_time"),
             "active_time": request.form.get("active_time")
         }
