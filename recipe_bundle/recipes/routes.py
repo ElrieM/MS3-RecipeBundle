@@ -44,7 +44,7 @@ def add_recipe():
         }
         mongo.db.recipes.insert_one(recipe)
         flash("Recipe added")
-        return redirect(url_for("collection"))
+        return redirect(url_for("recipes.collection"))
 
     cuisines = mongo.db.cuisines.find().sort("cuisine_name", 1)
     mealtypes = mongo.db.types.find().sort("mealtype_name", 1)
@@ -82,4 +82,4 @@ def edit_recipe(recipe_id):
 def delete_recipe(recipe_id):
     mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
     flash("Recipe successfully deleted")
-    return redirect(url_for("collection"))
+    return redirect(url_for("recipes.collection"))
