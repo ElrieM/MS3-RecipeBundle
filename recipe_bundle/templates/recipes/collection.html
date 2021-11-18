@@ -22,9 +22,11 @@
             </div>
         </form>
     </div>
+    <!-- Table with list of recipes -->
     <!-- Adapted from https://getbootstrap.com/docs/5.1/content/tables/ -->
     <div id="recipe-table" class="container table-responsive">
         <table class="table table-hover table-sm">
+            <!-- Table headings -->
             <thead>
                 <tr>
                     <th scope="col">Recipe</th>
@@ -34,27 +36,35 @@
                     <th scope="col"></th>
                 </tr>
             </thead>
-
+            <!-- Recipes from MongoDB recipes collection -->
             <tbody>
                 {% if recipes|length > 0 %}
                 {% for recipe in recipes %}
                 <tr>
-
                     <td>{{ recipe.recipe_name }}</td>
                     <td>{{ recipe.cuisine }}</td>
                     <td>{{ recipe.type }}</td>
                     <td>{{ recipe.diet }}</td>
+                    <!-- view link, to view recipe -->
                     <td>
                         <a href="{{ url_for('recipes.select_recipe', recipe_id=recipe._id)}}"
                             class="btn-small btn-link"><i class="far fa-eye"></i></a>
                     </td>
+                    <!-- edit link, displays with edit image -->
                     <td>
-                        <a href="{{ url_for('recipes.edit_recipe', recipe_id=recipe._id)}}" class="btn-small btn-link"><i class="fas fa-edit"></i></a>
+                        {% if session.user|lower == recipe.creator|lower %}
+                        <a href="{{ url_for('recipes.edit_recipe', recipe_id=recipe._id)}}"
+                            class="btn-small btn-link"><i class="fas fa-edit"></i></a>
+                        {% endif %}
                     </td>
+                    <!-- delete link, displays with delete image -->
                     <td>
+                        {% if session.user|lower == recipe.creator|lower %}
                         <a href="{{ url_for('recipes.delete_recipe', recipe_id=recipe._id)}}"
                             class="btn-small btn-link"><i class="fas fa-trash-alt"></i></a>
+                        {% endif %}
                     </td>
+
                     {% endfor %}
                 </tr>
                 {% else %}
@@ -70,6 +80,7 @@
             </tbody>
         </table>
     </div>
+    <!-- Add recipe button -->
     <div class="container">
         <div class="col-sm-3">
             <a href="{{ url_for('recipes.add_recipe') }}">
