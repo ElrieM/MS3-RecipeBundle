@@ -2,48 +2,54 @@
 {% block content %}
 
 <div class="container">
-  <h1 class="text-center">Sign In to Your Account</h1>
+    <h1 class="text-center">Sign In to Your Account</h1>
 
-  <!-- Login page adapated from https://mdbootstrap.com/docs/standard/extended/login/ -->
-  <div class="row d-flex justify-content-center align-items-center">
-    <div class="col-12 col-md-9 col-lg-7 col-xl-6">
-      <div class="card" style="border-radius: 15px;">
-        <div class="card-body p-3">
-          <form method="POST" action="{{ url_for('auth.signin') }}">
-            <p class="mb-2 text-center">Please enter your username and password</p>
-            <!-- User name -->
-            <div class="form-outline mb-2">
-              <input type="text" id="username" name="username" minlength="5" maxlength="15"
-                pattern="^[a-zA-Z0-9]{5,15}$" class="form-control form-control-lg" 
-                 autocomplete="username" required />
-              <label class="form-label" for="username">User Name</label>
+    <!-- Login page adapated from https://mdbootstrap.com/docs/standard/extended/login/ -->
+    <div class="row d-flex justify-content-center align-items-center">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+            <div class="card" style="border-radius: 15px;">
+                <div class="card-body p-3">
+                    <!-- Sign in form -->
+                    <form class="was-validated" method="POST" action="{{ url_for('auth.signin') }}">
+                        <p class="mb-2 text-center">Please enter your username and password</p>
+                        <!-- User name -->
+                        <div class="form-outline mb-2">
+                            <label class="form-label" for="username">User Name</label>
+                            <input type="text" id="username" name="username" minlength="5" maxlength="20"
+                                pattern="^[a-zA-Z0-9]{5,20}$" class="form-control form-control-lg"
+                                autocomplete="username" required />
+                            <!-- Field validation -->
+                            <div class="invalid-feedback">Please enter username</div>
+                        </div>
+                        <!-- Password -->
+                        <div class="form-outline mb-2">
+                            <label class="form-label" for="password">Password</label>
+                            <input type="password" id="password" name="password" minlength="5" maxlength="15"
+                                pattern="^[a-zA-Z0-9]{5,15}$" class="form-control form-control-lg"
+                                autocomplete="current-password" required />
+                            <!-- Field validation -->
+                            <div class="invalid-feedback">Please enter password</div>
+                        </div>
+                        <div class="invalid-feedback">Username / password incorrect</div>
+                        <p class="text-center mb-2 pb-lg-1"><a class="" href="#!">Forgot password?</a></p>
+                        <!-- Submit button -->
+                        <div class="d-flex justify-content-center">
+                            <button type="submit" class="btn btn-dark btn-lg">
+                                Sign In
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <!-- Sign up for new account -->
+                <p class="text-center mt-3 mb-0">
+                    Don't have an account?
+                    <a href="{{ url_for('auth.register') }}" class="fw-bold text-body">
+                        <u>Sign up here</u>
+                    </a>
+                </p>
             </div>
-            <!-- Password -->
-            <div class="form-outline mb-2">
-              <input type="password" id="password" name="password" minlength="5" maxlength="15"
-                pattern="^[a-zA-Z0-9]{5,15}$" class="form-control form-control-lg" 
-                 autocomplete="current-password" required />
-              <label class="form-label" for="password">Password</label>
-            </div>
-            <p class="text-center mb-2 pb-lg-1"><a class="" href="#!">Forgot password?</a></p>
-            <!-- Submit button -->
-            <div class="d-flex justify-content-center">
-              <button type="submit" class="btn btn-dark btn-lg">
-                Sign In
-              </button>
-            </div>
-          </form>
         </div>
-        <!-- Sign up for new account -->
-        <p class="text-center mt-3 mb-0">
-          Don't have an account?
-          <a href="{{ url_for('auth.register') }}" class="fw-bold text-body">
-            <u>Sign up here</u>
-          </a>
-        </p>
-      </div>
     </div>
-  </div>
 </div>
 
 {% endblock %}
