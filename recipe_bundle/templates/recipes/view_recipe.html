@@ -9,26 +9,48 @@
                 <p class="col">Total time: {{ recipe.total_time }}</p>
                 <p class="col">Active time: {{ recipe.active_time }}</p>
             </div>
-            <img id="recipe-image" src=" {{ recipe.image }}">
-            <div class="row">
-                <div class="col-sm-6">
-                    <p>Meal type: {{ recipe.type }}</p>
-                    <p>Diet: {{ recipe.diet }}</p>
-                    <p>Cuisine: {{ recipe.cuisine }}</p>
-                </div>
-                <div class="col-sm-3">
-                    <button class="btn btn-primary">
-                        <a href="{{ url_for('recipes.edit_recipe', recipe_id=recipe._id)}}" class="btn-small">Edit</a>
-                    </button>
-                </div>
-                <div class="col-sm-3">
-                    <button class="btn btn-primary">
-                        <a href="{{ url_for('recipes.delete_recipe', recipe_id=recipe._id)}}" class="btn-small">Delete</a>
-                    </button>
-                </div>
+            <img id="recipe-image" src=" {{ recipe.img_url }}">
+            <div class="container-flex">
+                <p>Meal type: {{ recipe.type }}</p>
+                <p>Diet: {{ recipe.diet }}</p>
+                <p>Cuisine: {{ recipe.cuisine }}</p>
             </div>
         </div>
         <div class="col col-md-7">
+            <div class="container">
+                <!-- Button to edit recipe page -->
+                <a href="{{ url_for('recipes.edit_recipe', recipe_id=recipe._id)}}" class="btn-small">
+                    <button class="btn btn-primary">Edit</button>
+                </a>
+                <!-- Button to edit recipe page -->
+                <button class="btn btn-primary" onclick="document.getElementById('deleteModal').style.display='block'">
+                    Delete
+                </button>
+                <!-- Popup modal to confirm before deleting -->
+                <!-- Adapted from https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_delete_modal -->
+                <div id="deleteModal" class="modal">
+                    <span onclick="document.getElementById('deleteModal').style.display='none'" class="close"
+                        title="Close Modal">×</span>
+                    <form class="modal-content">
+                        <div class="container">
+                            <div class="modal-header">
+                                <h1>Delete Recipe</h1>
+                            </div>
+                            <p>Are you sure you want to delete this recipe?</p>
+                            <div class="modal-footer">
+                                <div class="clearfix">
+                                    <button type="button"
+                                        onclick="document.getElementById('deleteModal').style.display='none'"
+                                        class="cancelbtn">Cancel</button>
+                                    <a href="{{ url_for('recipes.delete_recipe', recipe_id=recipe._id)}}"
+                                        class="btn btn-primary">Delete</a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- Accordion containing ingredients in one block and method in the other -->
             <!-- Adapted from https://getbootstrap.com/docs/5.1/components/accordion/ -->
             <div class="accordion" id="recipeAccordion">
                 <div class="accordion-item active">
