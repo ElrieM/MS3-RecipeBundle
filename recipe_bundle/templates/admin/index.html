@@ -3,19 +3,20 @@
 
 <div class="container">
     <h1 class="text-center">Welcome to Recipe Bundle</h1>
-    <div class="row" id="index-block">
-        <div class="col-sm-5 index-box">
-            <h2>What's for dinner tonight?</h2>
-            <p>Uploaded your favourite recipes to the site so you never have to dig through a pile of recipes ever again!</p>
+    <div class="container">
+        <div class="row" id="index-block">
+            <!-- Left text block, stacks on smaller devices -->
+            <div class="col-sm-5 index-box">
+                <h2>What's for dinner tonight?</h2>
+                <p>Browse through recipes from community members for inspiration!</p>
+            </div>
+            <!-- Right text block, stacks on smaller devices -->
+            <div class="col-sm-5 index-box">
+                <h2>Craving something special?</h2>
+                <p>Search by cuisine, meal type, ingredients or more.</p>
+            </div>
         </div>
-        <div class="col-sm-5 index-box">
-            <h2>Looking for some inspiration?</h2>
-            <p>Search by cuisine, meal type, ingredients or more.</p>
-        </div>
+        <p class="text-center">Ready to get started? <a type="button" class="btn-link" href="{{ url_for('auth.signin') }}">Sign Up</a> now!</p>
     </div>
-    <div>
-        <p class="text-center">Ready to get started? Sign Up now!</p>
-    </div>
-
 </div>
 {% endblock %}

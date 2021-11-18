@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- favicon-->
-    <link rel="icon" href="/static/images/favicon-recipes.ico" type="image/x-icon">
+    <link rel="icon" href="{{url_for('static', filename='images/index/favicon-recipes.ico') }}" type="image/x-icon">
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
     <!-- Google fonts-->
@@ -23,8 +23,9 @@
 <body id="page-top">
     <!-- Page Header-->
     <!-- Copied and adapted from https://startbootstrap.com/theme/clean-blog -->
-    <header class="masthead"
-        style="background-image: url('https://ms3recipebundle.s3.eu-central-1.amazonaws.com/header-bg.jpg');">
+    <!-- Header image: Photo by Rachel Claire from Pexels
+        https://www.pexels.com/photo/delicious-cheese-and-sausage-garnished-with-nuts-and-herbs-in-restaurant-4993251/-->
+    <header class="masthead" style="background-image: url('/static/images/index/header-bg.jpg');">
         <!-- Navigation-->
         <!-- Copied and adapted from https://startbootstrap.com/theme/clean-blog -->
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
@@ -64,12 +65,15 @@
                                 aria-labelledby="navbarDarkDropdownMenuLink">
                                 <!-- Sign out for logged in users only -->
                                 {% if session.user %}
-                                <li><a class="dropdown-item text-center" href="{{ url_for('auth.signout') }}">Sign Out</a>
+                                <li><a class="dropdown-item text-center" href="{{ url_for('auth.signout') }}">Sign
+                                        Out</a>
                                 </li>
                                 <!-- Signin or Register, only when no user logged in -->
                                 {% else %}
-                                <li><a class="dropdown-item text-center" href="{{ url_for('auth.signin') }}">Sign In</a></li>
-                                <li><a class="dropdown-item text-center" href="{{ url_for('auth.register') }}">Register</a>
+                                <li><a class="dropdown-item text-center" href="{{ url_for('auth.signin') }}">Sign In</a>
+                                </li>
+                                <li><a class="dropdown-item text-center"
+                                        href="{{ url_for('auth.register') }}">Register</a>
                                 </li>
                                 {% endif %}
                             </ul>
