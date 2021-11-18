@@ -1,6 +1,7 @@
 from flask import (flash, render_template, redirect,
                    request, session, url_for, Blueprint)
 from werkzeug.security import generate_password_hash, check_password_hash
+from bson.objectid import ObjectId
 from recipe_bundle import mongo
 
 # Create blueprint for auth object
@@ -9,7 +10,7 @@ auth = Blueprint('auth', __name__)
 
 @auth.route("/")
 @auth.route("/register", methods=["GET", "POST"])
-def register():
+def register() -> object:
     """
     Creates new user, adds user information to MongoDB Users collection,
     creates login session and redirects to (recipe) collection page with
@@ -27,7 +28,16 @@ def register():
         if existing_user:
             flash("Username already exists, please try again")
             return redirect(url_for("auth.register"))
-        # if username doesn't exist, registers user details in Users collection
+
+        # confirm email not already in DB
+        existing_email = mongo.db.users.find_one(
+            {"email": request.form.get("email")})
+        # if email exists, notify user and reload register page
+        if existing_email:
+            flash("Email already exists, please sign in instea")
+            return redirect(url_for("auth.register"))
+
+        # if username and email don't exist, register user in Users collection
         register = {
             "username": request.form.get("username"),
             "email": request.form.get("email"),
@@ -48,7 +58,13 @@ def register():
 
 
 @auth.route("/signin", methods=["GET", "POST"])
-def signin():
+def signin() -> object:
+    """
+    Checks user exists, compares passwords and signs user in
+    if correct. Lands on Collection page.
+    If incorrect, user is taken back to sign in page.
+    :return render_template of collection page
+    """
     if request.method == "POST":
         # searches username in db
         user_exists = mongo.db.users.find_one(
@@ -75,8 +91,46 @@ def signin():
     return render_template("auth/signin.html")
 
 
+@auth.route("/reset", methods=["GET", "POST"])
+def reset() -> object:
+    """
+    Checks email address exists in database before resetting
+    password on database with new input.
+    :return: updates db password and redirects to sign in page
+    """
+    if request.method == "POST":
+        # searches email address in db
+        email_exists = mongo.db.users.find_one(
+            {"email": request.form.get("r_email")})
+        # find object id
+        user_id = email_exists['_id']
+
+        if email_exists:
+            # New password
+            updatedpw = {
+                "password": generate_password_hash(
+                    request.form.get("new_password"))
+            }
+        try:
+            mongo.db.users.update({"_id": ObjectId(user_id)}, updatedpw)
+        except Exception as e:
+            flash("An error occurred when updating password: " +
+                  getattr(e, 'message', repr(e)))
+        else:
+            # Message if username not found
+            flash("Email not found, please try again")
+            return redirect(url_for("auth.signin"))
+
+    return render_template("auth/reset.html")
+
+
 @auth.route("/signout")
-def signout():
+def signout() -> object:
+    """
+    Signs out user from the site and returns sign in page
+    :return render_template signin page
+    """
+    # Removes user from session cookies
     session.pop('user')
-    flash("Sign out successful")
+    flash("Signed out successful")
     return redirect(url_for("auth.signin"))

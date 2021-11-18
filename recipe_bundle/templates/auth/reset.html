@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container">
+    <h1 class="text-center">Reset Password</h1>
+    <!-- Adapted from https://mdbootstrap.com/docs/standard/extended/registration/ -->
+
+    <div class="row d-flex justify-content-center align-items-center">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+            <div class="card" style="border-radius: 15px;">
+                <div class="card-body p-3">
+                    <form class="was-validated" method="POST" action="{{  url_for('auth.reset') }}">
+                        <!-- Email address -->
+                        <div class="form-outline mb-2">
+                            <label class="form-label" for="r_email">Email address</label>
+                            <input type="email" id="r_email" name="r_email" class="form-control form-control-lg" required />
+                            <!-- Field validation -->
+                            <div class="invalid-feedback">Please enter valid email address</div>
+                        </div>
+                        <!-- Password -->
+                        <div class="form-outline mb-2">
+                            <label class="form-label" for="new_password">Password</label>
+                            <input type="password" id="new_password" name="new_password" minlength="5" maxlength="15"
+                                pattern="^[a-zA-Z0-9]{5,15}$" class="form-control form-control-lg" 
+                                autocomplete="new-password" required />
+                            <!-- Field validation -->
+                            <div class="invalid-feedback">Please enter password between 5 and 20 alphanumeric letters</div>
+                        </div>
+                        <!-- Repeat password -->
+                        <div class="form-outline mb-2">
+                            <label class="form-label" for="passwordRepeat">Repeat password</label>
+                            <input type="password" id="passwordRepeat" name="passwordRepeat" minlength="5"
+                                maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="form-control form-control-lg"
+                                autocomplete="new-passwordRepeat" required />
+                        </div>
+                        <!-- Field validation -->
+                        <div class="invalid-feedback">Please re-enter password</div>
+
+                        <!-- Submit button -->
+                        <div class="d-flex justify-content-center">
+                            <button type="submit" class="btn btn-dark btn-lg">
+                                Reset Password
+                            </button>
+                        </div>
+                        <!-- Link to Sign in instead -->
+                        <p class="text-center mt-3 mb-0">
+                            Cick here to
+                            <a href="{{ url_for('auth.signin') }}" class="fw-bold text-body">
+                                <u>Sign in instead</u>
+                            </a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
