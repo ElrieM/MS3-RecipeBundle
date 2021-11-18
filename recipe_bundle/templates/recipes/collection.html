@@ -47,7 +47,7 @@
                     <td>{{ recipe.diet }}</td>
                     <!-- view link, to view recipe -->
                     <td>
-                        <a href="{{ url_for('recipes.select_recipe', recipe_id=recipe._id)}}"
+                        <a href="{{ url_for('recipes.view_recipe', recipe_id=recipe._id)}}"
                             class="btn-small btn-link"><i class="far fa-eye"></i></a>
                     </td>
                     <!-- edit link, displays with edit image -->
