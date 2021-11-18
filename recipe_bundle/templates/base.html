@@ -40,18 +40,26 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto py-4 py-lg-0">
                         <!-- Home page -->
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4"
-                                href="{{ url_for('admin.home') }}">Home</a>
+                        <li class="nav-item">
+                            <a class="nav-link px-lg-3 py-3 py-lg-4" href="{{ url_for('admin.home') }}">
+                                Home
+                            </a>
                         </li>
                         <!-- Manage recipe detail options, only visible to Admin -->
                         {% if session.user == "Admin" %}
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4"
-                                href="{{ url_for('manage.admin') }}">Administrator</a></li>
+                                href="{{ url_for('manage.admin') }}">
+                                Administrator
+                            </a>
+                        </li>
                         {% endif %}
                         <!-- Collection only visible to logged in user -->
                         {% if session.user %}
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4"
-                                href="{{ url_for('recipes.collection') }}">Recipe Collection</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link px-lg-3 py-3 py-lg-4" href="{{ url_for('recipes.collection') }}">
+                                Recipe Collection
+                            </a>
+                        </li>
                         {% endif %}
                         <!-- Dropdown adapted from https://getbootstrap.com/docs/5.0/components/dropdowns/ -->
                         <!-- Dropdown menu for account admin - signin / registration / signout -->
@@ -65,22 +73,32 @@
                                 aria-labelledby="navbarDarkDropdownMenuLink">
                                 <!-- Sign out for logged in users only -->
                                 {% if session.user %}
-                                <li><a class="dropdown-item text-center" href="{{ url_for('auth.signout') }}">Sign
-                                        Out</a>
+                                <li>
+                                    <a class="dropdown-item text-center" href="{{ url_for('auth.signout') }}">
+                                        Sign Out
+                                    </a>
                                 </li>
                                 <!-- Signin or Register, only when no user logged in -->
                                 {% else %}
-                                <li><a class="dropdown-item text-center" href="{{ url_for('auth.signin') }}">Sign In</a>
+                                <li>
+                                    <a class="dropdown-item text-center" href="{{ url_for('auth.signin') }}">
+                                        Sign In
+                                    </a>
                                 </li>
-                                <li><a class="dropdown-item text-center"
-                                        href="{{ url_for('auth.register') }}">Register</a>
+                                <li>
+                                    <a class="dropdown-item text-center" href="{{ url_for('auth.register') }}">
+                                        Register
+                                    </a>
                                 </li>
                                 {% endif %}
                             </ul>
                         </li>
                         <!-- Contact page -->
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4"
-                                href="{{ url_for('cont.contact') }}">Contact</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link px-lg-3 py-3 py-lg-4" href="{{ url_for('cont.contact') }}">
+                                Contact
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
