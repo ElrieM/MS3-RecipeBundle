@@ -11915,7 +11915,7 @@ hr {
 }
 
 p {
-  margin: 2rem 0;
+  margin: .5rem 0;
 }
 
 p a {
@@ -12265,11 +12265,10 @@ header.masthead .post-heading .meta a {
   border: solid 2px black;
   text-align: center;
   padding: 2rem;
-  margin: 1px;
+  margin: 1em;
 }
 
 #index-block {
   display: flex;
-  flex-wrap: nowrap;
   justify-content: space-evenly;
 }

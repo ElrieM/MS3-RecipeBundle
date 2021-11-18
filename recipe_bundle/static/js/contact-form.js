@@ -1,4 +1,5 @@
 /* Adapted from https://jsfiddle.net/13atu8e5/ */
+/* Send email using emailJS */
 
 const btn = document.getElementById('button');
 
