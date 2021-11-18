@@ -7,25 +7,29 @@
     <div id="recipeEditForm">
         <!-- Adapted from https://getbootstrap.com/docs/5.1/forms/layout/ -->
         <form class="row p-3" method="POST" action="{{ url_for('recipes.edit_recipe', recipe_id=recipe._id) }}">
+            <!-- Recipe name input -->
             <div class="row">
                 <div>
                     <label for="recipe_name" class="col-sm-2 col-form-label">Recipe name: </label>
                     <input type="text" class="form-control col-sm-10" id="recipe_name" name="recipe_name"
-                        value="{{ recipe.recipe_name }}">
+                        value="{{ recipe.recipe_name }}" required>
                 </div>
             </div>
+            <!-- Recipe total time -->
             <div class="row">
                 <div class="col-sm-6">
                     <label for="total_time" class="col-form-label">Total time: </label>
                     <input type="text" class="form-control" id="total_time" name="total_time"
-                        value="{{ recipe.total_time }}">
+                        value="{{ recipe.total_time }}" required>
                 </div>
+                <!-- Recipe active time -->
                 <div class="col-sm-6">
                     <label for="active_time" class="col-form-label">Active time: </label>
                     <input type="text" class="form-control" id="active_time" name="active_time"
-                        value="{{ recipe.active_time }}">
+                        value="{{ recipe.active_time}}" required>
                 </div>
             </div>
+            <!-- Meal detail selectors -->
             <div class="row">
                 <div class="col-sm-4">
                     <label for="cuisine" class="form-label">Cuisine</label>
@@ -67,29 +71,79 @@
                     </select>
                 </div>
             </div>
+            <!-- Ingredients input and view -->
             <div class="row">
                 <div class="col-sm-12">
                     <h2>Ingredients</h2>
-                    <div class="form-check">
-                        {% for ingredient in recipe.ingredients %}
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            {{ ingredient }}
-                        </label>
-                        {% endfor %}
+                    <div>
+                        <div>
+                            <!-- Input and add button -->
+                            <span>
+                                <textarea class="col-sm-10" type="text" id="inputIngred" name="inputIngred"></textarea>
+                                <input class="btn btn-primary" type="button" value="Add"
+                                    onclick="addIngredient(ingrArray)" required>
+                            </span>
+                        </div>
+                        <!-- Ingredients displayed in table -->
+                        <div>
+                            <table class="table table-sm" id="ingredientTable" name="ingredientTable">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            {{ recipe.ingredients }}
+                                        </td>
+                                        <td>
+                                            <a class="btn btn-link" type="button" id='btn${x}'
+                                                onclick="editIngredient(this.parentNode)"><i
+                                                    class="fas fa-edit"></i></a>
+                                            <a class="btn btn-link" id='btn${x}'
+                                                onclick="delIngredient(this.parentNode)"><i
+                                                    class="fas fa-trash-alt"></i></a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <!-- Array data -->
+                            <input type="hidden" id="ingr-list" value="{{ recipe.ingredients }}" name="ingr-list">
+                        </div>
                     </div>
                 </div>
             </div>
+            <!-- Methods input and view -->
             <div class="row">
                 <div class="col-sm-12">
                     <h2>Method</h2>
-                    <div class="form-check">
-                        {% for step in recipe.method %}
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            {{ step }}
-                        </label>
-                        {% endfor %}
+                    <div>
+                        <div>
+                            <!-- Input and add button -->
+                            <span>
+                                <input class="col-sm-10" type="text" id="inputMethod" name="inputMethod">
+                                <input class="btn btn-primary" type="button" value="Add"
+                                    onclick="addMethod(methodArray)" required>
+                            </span>
+                        </div>
+                        <!-- Methods displayed in table -->
+                        <div>
+                            <table class="table table-sm" id="methodTable" name="methodTable">
+                                <tbody>
+                                    {% for step in recipe.method %}
+                                    <tr>
+                                        <td>
+                                            {{ step }}
+                                        </td>
+                                        <td>
+                                            <a class="btn btn-link" type="button" id='btn${x}'
+                                                onclick="editMethod(this.parentNode)"><i class="fas fa-edit"></i></a>
+                                            <a class="btn btn-link" id='btn${x}' onclick="delMethod(this.parentNode)"><i
+                                                    class="fas fa-trash-alt"></i></a>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                            <!-- Array data -->
+                            <input type="hidden" id="method-list" value="{{ recipe.method }}" name="method-list">
+                        </div>
                     </div>
                 </div>
             </div>

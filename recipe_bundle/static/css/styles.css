@@ -2050,8 +2050,9 @@ progress {
   width: 100%;
   margin-bottom: 1rem;
   color: #212529;
-  vertical-align: top;
+  vertical-align: center;
   border-color: #dee2e6;
+  font-size: initial;
 }
 
 .table> :not(caption)>*>* {
