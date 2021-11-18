@@ -25,14 +25,14 @@ def create_app():
     from recipe_bundle.admin.routes import admin
     from recipe_bundle.auth.routes import auth
     from recipe_bundle.contact.routes import cont
-    from recipe_bundle.err.routes import err
+    from recipe_bundle.errors.routes import errors
     from recipe_bundle.manage.routes import manage
     from recipe_bundle.recipes.routes import recipes
     # Blueprint routes
     app.register_blueprint(admin)
     app.register_blueprint(auth)
     app.register_blueprint(cont)
-    app.register_blueprint(err)
+    app.register_blueprint(errors)
     app.register_blueprint(manage)
     app.register_blueprint(recipes)
     # Return app
