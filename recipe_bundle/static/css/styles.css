@@ -3914,7 +3914,7 @@ fieldset:disabled .btn {
 .btn-link {
   font-weight: 400;
   color: #8f9a6d;
-  text-decoration:underline;
+  text-decoration: underline;
 }
 
 .btn-link:hover {
@@ -12255,7 +12255,7 @@ header.masthead .post-heading .meta a {
 }
 
 #contact-button {
-  margin-top:1em;
+  margin-top: 1em;
   align-items: center;
 }
 
@@ -12271,4 +12271,28 @@ header.masthead .post-heading .meta a {
 #index-block {
   display: flex;
   justify-content: space-evenly;
+}
+
+/* Page layout adjustments */
+/* Adapted from https://stackoverflow.com/questions/16679146/force-footer-on-bottom-on-pages-with-little-content */
+html,
+body {
+  margin: 0;
+  height: 100%;
+}
+
+body {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 1fr;
+  grid-template-areas: "main""footer";
+  grid-template-rows: 1fr auto;
+}
+
+main {
+  grid-area: main;
+}
+
+footer {
+  grid-area: footer;
 }
