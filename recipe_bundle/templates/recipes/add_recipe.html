@@ -6,7 +6,7 @@
 
     <div id="recipeEditForm">
         <!-- Adapted from https://getbootstrap.com/docs/5.1/forms/layout/ -->
-        <form class="row p-3" method="POST" action="{{ url_for('recipes.add_recipe') }}">
+        <form class="row p-3 needs-validation" enctype="multipart/form-data" method="POST" action="{{ url_for('recipes.add_recipe') }}">
             <!-- Recipe name input -->
             <div class="row">
                 <div>
@@ -88,6 +88,12 @@
                     <input type="hidden" id="method-list" name="method-list">
                 </div>
             </div>
+            <!-- Upload image -->
+            <h2>Upload image:</h2>
+            <div class="row">
+                <label for="recipe_img" class="form-label">Recipe image</label>
+                <input type="file" name="recipe_img" id="recipe_img" value="file">
+            </div>
             <div class="col-12">
                 <!-- Submit button, saved to MongoDB -->
                 <button type="submit" class="btn btn-primary">Save</button>
@@ -95,15 +101,6 @@
                 <a href="{{ url_for('recipes.collection') }}">Cancel</a>
             </div>
         </form>
-        <!-- Image upload -->
-        <!-- Adapted from https://medium.com/aws-pocket/uploading-files-to-aws-s3-with-flask-3d3d213404fb -->
-        <div class="container">
-            <form action="/upload" method="post" enctype="multipart/form-data">
-                <p class="card-text">Upload a picture</p>
-                
-            </form>
-            {{msg}}
-        </div>
 
     </div>
 

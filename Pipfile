@@ -16,6 +16,7 @@ pymongo = "*"
 certifi = "*"
 flake8 = "*"
 boto3 = "*"
+requests = "*"
 
 [dev-packages]
 ipykernel = "*"
