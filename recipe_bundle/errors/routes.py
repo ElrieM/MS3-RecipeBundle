@@ -17,7 +17,8 @@ def error_404(error: object) -> object:
 @app.errorhandler(400)
 def error_400(error: object) -> object:
     """
-    Displays 400 error page when page not found
+    Displays 400 error page server cannot or will not process the 
+    request due to an apparent client error
     :return render_template of 400.html
     """
     return render_template('errors/400.html', error=error), 400
