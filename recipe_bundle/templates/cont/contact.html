@@ -7,26 +7,40 @@
     <!-- Form adapted from Bootstrap 5 (https://getbootstrap.com/docs/5.1/forms/layout/) -->
     <!-- Validation adapted from Bootstrap 5 (https://getbootstrap.com/docs/5.1/forms/validation/) -->
     <div class="container" id="contact-form">
-        <form class="needs-validation" id="form">
+        <form class="was-validated" id="form">
             <!-- Contact name -->
             <div class="field">
                 <label for="from_name" class="form-label">Your Name</label>
                 <input type="text" class="form-control" name="from_name" id="from_name" required>
+                <!-- Field validation -->
+                <div class="valid-feedback">Looks good!</div>
+                <div class="invalid-feedback">Please insert a name</div>
             </div>
             <!-- Contact email address -->
             <div class="field">
                 <label for="from_email" class="form-label">Email address</label>
                 <input type="email" class="form-control" name="from_email" id="from_email" required>
+                <!-- Field validation -->
+                <div class="valid-feedback">Looks good!</div>
+                <div class="invalid-feedback">Please insert an email address</div>
             </div>
-            <!-- Contact subject -->
+            <!-- Contact subject, dropdown of options -->
             <div class="field">
                 <label for="subject" class="form-label">Subject</label>
-                <input type="text" class="form-control" name="subject" id="subject">
+                <select class="form-select" name="subject" id="subject" required>
+                    <option value="" selected disabled>Select an option</option>
+                    <option>Suggest an improvement</option>
+                    <option>Report a bug</option>
+                    <option>Other</option>
+                </select>
+                <div class="invalid-feedback">Please select an option</div>
             </div>
             <!-- Contact message -->
             <div class="field">
                 <label for="message" class="form-label">Message</label>
-                <textarea class="form-control" aria-label="With textarea" name="message" id="message"></textarea>
+                <textarea class="form-control" aria-label="With textarea" name="message" id="message"
+                    required></textarea>
+                <div class="invalid-feedback">Please leave a message here</div>
             </div>
             <!-- Submit button -->
             <input class="btn btn-primary" type="submit" id="contact-button" value="Send Email">
