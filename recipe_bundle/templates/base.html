@@ -4,7 +4,7 @@
 <head>
     <!-- Metadata -->
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge; 1800; URL=logout.php?timeout">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- favicon-->
     <link rel="icon" href="{{url_for('static', filename='images/index/favicon-recipes.ico') }}" type="image/x-icon">
@@ -31,7 +31,7 @@
             <!-- Copied and adapted from https://startbootstrap.com/theme/clean-blog -->
             <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
                 <div class="container px-5">
-                    <a class="navbar-brand" href="{{ url_for('admin.home') }}">Recipe Bundle</a>
+                    <a class="navbar-brand" href="{{ url_for('admin.home') }}/#">Recipe Bundle</a>
                     <!-- Hamburg menu button -->
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
