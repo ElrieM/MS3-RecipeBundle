@@ -17,6 +17,7 @@ certifi = "*"
 flake8 = "*"
 boto3 = "*"
 requests = "*"
+npm = "*"
 
 [dev-packages]
 ipykernel = "*"

@@ -7,7 +7,7 @@
     <!-- Form adapted from Bootstrap 5 (https://getbootstrap.com/docs/5.1/forms/layout/) -->
     <!-- Validation adapted from Bootstrap 5 (https://getbootstrap.com/docs/5.1/forms/validation/) -->
     <div class="container" id="contact-form">
-        <form class="was-validated" id="form">
+        <form class="was-validated" id="contactForm">
             <!-- Contact name -->
             <div class="field">
                 <label for="from_name" class="form-label">Your Name</label>
@@ -43,14 +43,17 @@
                 <div class="invalid-feedback">Please leave a message here</div>
             </div>
             <!-- Submit button -->
-            <input class="btn btn-primary" type="submit" id="contact-button" value="Send Email">
+            <input class="btn btn-primary" type="submit" id="contactButton" value="Send Email">
         </form>
+
+        <div id="submitResult"></div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
     <script>
         emailjs.init('user_mr0K8kcbIy3rrGRuzg2V6')
     </script>
+    <script src="{{ url_for('static', filename='js/contact-form.js') }}"></script>
 </div>
 
 {% endblock %}
