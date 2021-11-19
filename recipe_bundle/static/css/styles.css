@@ -7022,7 +7022,8 @@ fieldset:disabled .btn {
 }
 
 .link-primary {
-  color: #8F9A6D;
+  color: #1f1012;
+  text-decoration: underline;
 }
 
 .link-primary:hover,
