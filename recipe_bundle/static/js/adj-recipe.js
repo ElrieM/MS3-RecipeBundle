@@ -14,8 +14,8 @@ function addIngredient(ingrArray) {
     ingRow.insertCell(0).innerHTML += `<td class="col-sm-10">${ingInput}</td>`;
     ingRow.insertCell(1).innerHTML += `
         <td>
-        <button class="btn btn-link" type="button" onclick="editIngredient(this.parentNode)"><i class="fas fa-edit"></i></button>
-        <button class="btn btn-link" onclick="delIngredient(this.parentNode)"><i class="fas fa-trash-alt"></i></button>
+        <button class="btn btn-link" type="button" onclick="editIngredient(this.parentNode)" aria-label="Edit ingredient"><i class="fas fa-edit"></i></button>
+        <button class="btn btn-link" onclick="delIngredient(this.parentNode)" aria-label="Delete ingredient"><i class="fas fa-trash-alt"></i></button>
         </td>
     `;
 
@@ -78,9 +78,10 @@ function addMethod(methodArray) {
 
     metRow.insertCell(0).innerHTML += `<td class="col-sm-10">${metInput}</td>`;
     metRow.insertCell(1).innerHTML += `
-        <td>
-            <input class="btn btn-primary" type="button" value="Remove" onclick="delMethod(this.parentNode)">
-        </td>
+    <td>
+    <button class="btn btn-link" type="button" onclick="editMethod(this.parentNode)" aria-label="Edit ingredient"><i class="fas fa-edit"></i></button>
+    <button class="btn btn-link" onclick="delMethod(this.parentNode)" aria-label="Delete ingredient"><i class="fas fa-trash-alt"></i></button>
+    </td>
     `;
 
     /* Adds method to array */

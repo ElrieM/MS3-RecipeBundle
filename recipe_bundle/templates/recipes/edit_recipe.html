@@ -76,37 +76,45 @@
                 <div class="col-sm-12">
                     <h2>Ingredients</h2>
                     <div>
-                        <div>
-                            <!-- Input and add button -->
-                            <span>
-                                <textarea class="col-sm-10" type="text" id="inputIngred" name="inputIngred"></textarea>
-                                <input class="btn btn-primary" type="button" onclick="addIngredient(ingrArray)" value="Add">
-                            </span>
-                        </div>
-                        <!-- Ingredients displayed in table -->
-                        <div>
-                            <table class="table table-sm" id="ingredientTable">
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            {{ recipe.ingredients }}
-                                        </td>
-                                        <td>
-                                            <!-- Edit line -->
-                                            <button class="btn btn-link" type="button" onclick="editIngredient(this.parentNode)" value="Edit">
-                                                <i class="fas fa-edit"></i>
-                                            </button>
-                                            <!-- Delete line -->
-                                            <button class="btn btn-link" onclick="delIngredient(this.parentNode)" value="Delete">
-                                                <i class="fas fa-trash-alt"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <!-- Array data -->
-                            <input type="hidden" id="ingr-list" value="{{ recipe.ingredients }}" name="ingr-list">
-                        </div>
+                        <!-- Input and add button -->
+                        <span>
+                            <label for="inputIngred" class="form-label">Input Ingredients</label>
+                            <input class="col-sm-10" type="text" id="inputIngred" name="inputIngred">
+                            <input class="btn btn-primary" type="button" value="Add" onclick="addIngredient(ingrArray)">
+                        </span>
+                    </div>
+                    <!-- Ingredients displayed in table -->
+                    <div>
+                        <table class="table table-sm" id="ingredientTable">
+                            <thead>
+                                <tr>
+                                    <th>Ingredient</th>
+                                    <th>Links</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        {{ recipe.ingredients }}
+                                    </td>
+                                    <!-- buttons to edit -->
+                                    <td>
+                                        <!-- Edit line -->
+                                        <button class="btn btn-link" type="button"
+                                            onclick="editIngredient(this.parentNode)" aria-label="Edit ingredient">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <!-- Delete line -->
+                                        <button class="btn btn-link" onclick="delIngredient(this.parentNode)"
+                                            aria-label="Delete ingredient">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!-- Array data -->
+                        <input type="hidden" id="ingr-list" value="{{ recipe.ingredients }}" name="ingr-list">
                     </div>
                 </div>
             </div>
@@ -115,36 +123,43 @@
                 <div class="col-sm-12">
                     <h2>Method</h2>
                     <div>
-                        <div>
-                            <!-- Input and add button -->
-                            <span>
-                                <input class="col-sm-10" type="text" id="inputMethod" name="inputMethod">
-                                <input class="btn btn-primary" type="button" value="Add"
-                                    onclick="addMethod(methodArray)" required>
-                            </span>
-                        </div>
-                        <!-- Methods displayed in table -->
-                        <div>
-                            <table class="table table-sm" id="methodTable" name="methodTable">
-                                <tbody>
-                                    {% for step in recipe.method %}
-                                    <tr>
-                                        <td>
-                                            {{ step }}
-                                        </td>
-                                        <td>
-                                            <a class="btn btn-link" type="button" id='btn${x}'
-                                                onclick="editMethod(this.parentNode)"><i class="fas fa-edit"></i></a>
-                                            <a class="btn btn-link" id='btn${x}' onclick="delMethod(this.parentNode)"><i
-                                                    class="fas fa-trash-alt"></i></a>
-                                        </td>
-                                    </tr>
-                                    {% endfor %}
-                                </tbody>
-                            </table>
-                            <!-- Array data -->
-                            <input type="hidden" id="method-list" value="{{ recipe.method }}" name="method-list">
-                        </div>
+                        <!-- Input and add button -->
+                        <span>
+                        <label for="inputMethod" class="form-label">Input Method</label>
+                            <input class="col-sm-10" type="text" id="inputMethod" name="inputMethod">
+                            <input class="btn btn-primary" type="button" value="Add" onclick="addMethod(methodArray)">
+                        </span>
+                    </div>
+                    <!-- Methods displayed in table -->
+                    <div>
+                        <table class="table table-sm" id="methodTable">
+                            <thead>
+                                <tr>
+                                    <th>Method Step</th>
+                                    <th>Links</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for step in recipe.method %}
+                                <tr>
+                                    <td>
+                                        {{ step }}
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-link" type="button"
+                                            onclick="editMethod(this.parentNode)" aria-label="Edit method">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn btn-link" onclick="delMethod(this.parentNode)" aria-label="Delete method">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                        <!-- Array data -->
+                        <input type="hidden" id="method-list" value="{{ recipe.method }}" name="method-list">
                     </div>
                 </div>
             </div>
@@ -155,7 +170,6 @@
                 <a href="{{ url_for('recipes.collection') }}">Cancel</a>
             </div>
         </form>
-
     </div>
 </div>
 
