@@ -29,22 +29,22 @@
                 <div class="container">
                     {% if session.user|lower == recipe.creator|lower %}
                     <!-- Edit button, only available to creator -->
-                    <a class="col" href="{{ url_for('recipes.edit_recipe', recipe_id=recipe._id)}}">
-                        <button class="btn btn-primary">Edit</button>
+                    <a class="col btn btn-primary" href="{{ url_for('recipes.edit_recipe', recipe_id=recipe._id)}}">
+                        Edit
                     </a>
                     <!-- Delete button, only available to creator -->
-                    <a class="col" href="{{ url_for('recipes.delete_recipe', recipe_id=recipe._id)}}">
-                        <button class="btn btn-primary">Delete</button>
+                    <a class="col btn btn-primary" href="{{ url_for('recipes.delete_recipe', recipe_id=recipe._id)}}">
+                        Delete
                     </a>
                     {% endif %}
                     <!-- Link to return to collection page -->
                     <a class="col nav-link" href="{{ url_for('recipes.collection') }}">
-                        <button class="btn btn-link">Return to Collection</button>
+                        Return to Collection
                     </a>
                 </div>
             </div>
         </div>
-        
+
         <div class="col col-md-7">
             <!-- Recipe method and ingredients displayed in accordion, with ingredients showing first -->
             <!-- Adapted from https://getbootstrap.com/docs/5.1/components/accordion/ -->
