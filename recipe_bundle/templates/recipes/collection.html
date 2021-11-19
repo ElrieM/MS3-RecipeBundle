@@ -12,7 +12,7 @@
                 <div class="col-sm-8">
                     <label for="search-col">Search recipes</label>
                     <input class="text-center validate" type="text" id="search-col" name="search-col" required>
-                    <button type="submit" class="btn-primary">
+                    <button type="submit" class="btn-primary" value="search_btn">
                         <i class="fas fa-search prefix"></i>
                     </button>
                     <a href="{{ url_for('recipes.collection') }}">
@@ -33,7 +33,9 @@
                     <th scope="col">Cuisine</th>
                     <th scope="col">Meal type</th>
                     <th scope="col">Diet</th>
-                    <th scope="col"></th>
+                    <th scope="col">View</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
                 </tr>
             </thead>
             <!-- Recipes from MongoDB recipes collection -->
@@ -47,20 +49,20 @@
                     <td>{{ recipe.diet }}</td>
                     <!-- view link, to view recipe -->
                     <td>
-                        <a href="{{ url_for('recipes.view_recipe', recipe_id=recipe._id)}}"
+                        <a aria-label="redirect to recipe detail page" href="{{ url_for('recipes.view_recipe', recipe_id=recipe._id)}}"
                             class="btn-small btn-link"><i class="far fa-eye"></i></a>
                     </td>
                     <!-- edit link, displays with edit image -->
                     <td>
                         {% if session.user|lower == recipe.creator|lower %}
-                        <a href="{{ url_for('recipes.edit_recipe', recipe_id=recipe._id)}}"
+                        <a aria-label="redirect to edit recipe page" href="{{ url_for('recipes.edit_recipe', recipe_id=recipe._id)}}"
                             class="btn-small btn-link"><i class="fas fa-edit"></i></a>
                         {% endif %}
                     </td>
                     <!-- delete link, displays with delete image -->
                     <td>
                         {% if session.user|lower == recipe.creator|lower %}
-                        <a href="{{ url_for('recipes.delete_recipe', recipe_id=recipe._id)}}"
+                        <a aria-label="deletes recipe" href="{{ url_for('recipes.delete_recipe', recipe_id=recipe._id)}}"
                             class="btn-small btn-link"><i class="fas fa-trash-alt"></i></a>
                         {% endif %}
                     </td>
