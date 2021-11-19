@@ -14,7 +14,9 @@
                 <p class="col">Total time: {{ recipe.total_time }}</p>
                 <p class="col">Active time: {{ recipe.active_time }}</p>
             </div>
-            <img id="recipe-image" src=" {{ recipe.image }}">
+            <div class="row" id="placeholder-img" style="background-image: url('/static/images/other/placeholder.png'); background-repeat: no-repeat; background-position: center;">
+                <img id="recipe-image"src=" {{ recipe.image }}" alt="Image of recipe, if uploaded">
+            </div>
             <div class="row">
                 <div class="col-sm-6">
                     <p>Meal type: {{ recipe.type }}</p>
@@ -27,25 +29,28 @@
                         <button class="btn btn-link">Return to Collection</button>
                     </a>
                 </div>
-                {% if session.user|lower == recipe.creator|lower %}
-                <!-- Edit button, only available to creator -->
-                <div class="col-sm-3">
-                    <a href="{{ url_for('recipes.edit_recipe', recipe_id=recipe._id)}}">
-                        <button class="btn btn-primary">Edit</button>
-                    </a>
-                </div>
-                <!-- Delete button, only available to creator -->
-                <div class="col-sm-3">
-                    <a href="{{ url_for('recipes.delete_recipe', recipe_id=recipe._id)}}">
-                        <button class="btn btn-primary">Delete</button>
-                    </a>
-                </div>
-                {% endif %}
             </div>
         </div>
         <div class="col col-md-7">
             <!-- Recipe method and ingredients displayed in accordion, with ingredients showing first -->
             <!-- Adapted from https://getbootstrap.com/docs/5.1/components/accordion/ -->
+            <div class="container row">
+                {% if session.user|lower == recipe.creator|lower %}
+                <!-- Edit button, only available to creator -->
+                <div class="col-sm-6">
+                    <a href="{{ url_for('recipes.edit_recipe', recipe_id=recipe._id)}}">
+                        <button class="btn btn-primary">Edit</button>
+                    </a>
+                </div>
+                <!-- Delete button, only available to creator -->
+                <div class="col-sm-6">
+                    <a href="{{ url_for('recipes.delete_recipe', recipe_id=recipe._id)}}">
+                        <button class="btn btn-primary">Delete</button>
+                    </a>
+                </div>
+                {% endif %}
+
+            </div>
             <div class="accordion" id="recipeAccordion">
                 <!-- Ingredients section -->
                 <div class="accordion-item active">

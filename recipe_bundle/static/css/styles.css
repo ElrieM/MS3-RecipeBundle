@@ -12226,6 +12226,11 @@ header.masthead .post-heading .meta a {
   max-width: inherit;
 }
 
+#placeholder-img {
+  min-height: 50%;
+  border: dotted 1px #1F1012;
+}
+
 /* Customise recipe collection page */
 
 #recipe-table,
