@@ -3913,7 +3913,7 @@ fieldset:disabled .btn {
 
 .btn-link {
   font-weight: 400;
-  color: #8f9a6d;
+  color: #1F1012;
   text-decoration: underline;
 }
 
@@ -11915,6 +11915,7 @@ hr {
 }
 
 p {
+  font-size: initial;
   margin: .5rem 0;
 }
 
@@ -12227,7 +12228,7 @@ header.masthead .post-heading .meta a {
 }
 
 #placeholder-img {
-  min-height: 50%;
+  min-height: 115px;
   border: dotted 1px #1F1012;
 }
 
