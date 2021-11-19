@@ -5,17 +5,17 @@
 <h1 class="text-center">Recipe Collection</h1>
 
 <div id="recipe-container">
-    <!-- Table of recipes -->
+    <!-- Recipe search function -->
     <div class="container">
         <form action="{{ url_for('recipes.search') }}" method="post">
             <div class="row">
                 <div class="col-sm-8">
                     <label for="search-col">Search recipes</label>
                     <input class="text-center validate" type="text" id="search-col" name="search-col" required>
-                    <button type="submit" class="btn-primary" value="search_btn">
+                    <button type="submit" class="btn-primary" value="search_btn" aria-label="search button">
                         <i class="fas fa-search prefix"></i>
                     </button>
-                    <a href="{{ url_for('recipes.collection') }}">
+                    <a href="{{ url_for('recipes.collection') }}" aria-label="reset search button">
                         <i class="fas fa-undo"></i>
                     </a>
                 </div>
