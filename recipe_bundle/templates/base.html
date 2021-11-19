@@ -4,7 +4,8 @@
 <head>
     <!-- Metadata -->
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge; 1800; URL=logout.php?timeout">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="refresh" content="1800; URL=logout.php?timeout">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- favicon-->
     <link rel="icon" href="{{url_for('static', filename='images/index/favicon-recipes.ico') }}" type="image/x-icon">
@@ -113,7 +114,7 @@
             {% if messages %}
             <ul class=flashes>
                 {% for message in messages %}
-                <li>{{ message }}</li>
+                <li><h2>{{ message }}</h2></li>
                 {% endfor %}
             </ul>
             {% endif %}
