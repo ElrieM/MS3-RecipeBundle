@@ -80,25 +80,26 @@
                             <!-- Input and add button -->
                             <span>
                                 <textarea class="col-sm-10" type="text" id="inputIngred" name="inputIngred"></textarea>
-                                <input class="btn btn-primary" type="button" value="Add"
-                                    onclick="addIngredient(ingrArray)" required>
+                                <input class="btn btn-primary" type="button" onclick="addIngredient(ingrArray)" value="Add">
                             </span>
                         </div>
                         <!-- Ingredients displayed in table -->
                         <div>
-                            <table class="table table-sm" id="ingredientTable" name="ingredientTable">
+                            <table class="table table-sm" id="ingredientTable">
                                 <tbody>
                                     <tr>
                                         <td>
                                             {{ recipe.ingredients }}
                                         </td>
                                         <td>
-                                            <a class="btn btn-link" type="button" id='btn${x}'
-                                                onclick="editIngredient(this.parentNode)"><i
-                                                    class="fas fa-edit"></i></a>
-                                            <a class="btn btn-link" id='btn${x}'
-                                                onclick="delIngredient(this.parentNode)"><i
-                                                    class="fas fa-trash-alt"></i></a>
+                                            <!-- Edit line -->
+                                            <button class="btn btn-link" type="button" onclick="editIngredient(this.parentNode)" value="Edit">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <!-- Delete line -->
+                                            <button class="btn btn-link" onclick="delIngredient(this.parentNode)" value="Delete">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
                                         </td>
                                     </tr>
                                 </tbody>
