@@ -1,3 +1,5 @@
+/* jshint esversion: 6 */
+
 /* Scripts for adding and removing ingredients */
 var x = 0;
 var ingrArray = [];
@@ -12,8 +14,8 @@ function addIngredient(ingrArray) {
     ingRow.insertCell(0).innerHTML += `<td class="col-sm-10">${ingInput}</td>`;
     ingRow.insertCell(1).innerHTML += `
         <td>
-        <a class="btn btn-link" type="button" id='btn${x}' onclick="editIngredient(this.parentNode)"><i class="fas fa-edit"></i></a>
-        <a class="btn btn-link" id='btn${x}' onclick="delIngredient(this.parentNode)"><i class="fas fa-trash-alt"></i></a>
+        <button class="btn btn-link" type="button" onclick="editIngredient(this.parentNode)"><i class="fas fa-edit"></i></button>
+        <button class="btn btn-link" onclick="delIngredient(this.parentNode)"><i class="fas fa-trash-alt"></i></button>
         </td>
     `;
 
@@ -77,7 +79,7 @@ function addMethod(methodArray) {
     metRow.insertCell(0).innerHTML += `<td class="col-sm-10">${metInput}</td>`;
     metRow.insertCell(1).innerHTML += `
         <td>
-            <input class="btn btn-primary" type="button" id='btn${x}' value="Remove" onclick="delMethod(this.parentNode)">
+            <input class="btn btn-primary" type="button" value="Remove" onclick="delMethod(this.parentNode)">
         </td>
     `;
 
