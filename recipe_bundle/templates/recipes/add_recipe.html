@@ -6,7 +6,8 @@
 
     <div id="recipeEditForm">
         <!-- Adapted from https://getbootstrap.com/docs/5.1/forms/layout/ -->
-        <form class="row p-3 needs-validation" enctype="multipart/form-data" method="POST" action="{{ url_for('recipes.add_recipe') }}">
+        <form class="row p-3 needs-validation" enctype="multipart/form-data" method="POST"
+            action="{{ url_for('recipes.add_recipe') }}">
             <!-- Recipe name input -->
             <div class="row">
                 <div>
@@ -63,13 +64,14 @@
                     <div>
                         <span>
                             <input class="col-sm-10" type="text" id="inputIngred" name="inputIngred">
-                            <input class="btn btn-primary" type="button" value="Add" onclick="addIngredient(ingrArray)"
-                                required>
+                            <input class="btn btn-primary" type="button" value="Add" onclick="addIngredient(ingrArray)">
                         </span>
                     </div>
-                    <table id="ingredientTable" name="ingredientTable">
-                    </table>
-                    <input type="hidden" id="ingr-list" name="ingr-list">
+                    <div>
+                        <table id="ingredientTable">
+                        </table>
+                        <input type="hidden" id="ingr-list" name="ingr-list">
+                    </div>
                 </div>
             </div>
             <!-- Methods input -->
@@ -79,13 +81,14 @@
                     <div>
                         <span>
                             <input class="col-sm-10" type="text" id="inputMethod" name="inputMethod">
-                            <input class="btn btn-primary" type="button" value="Add" onclick="addMethod(methodArray)"
-                                required>
+                            <input class="btn btn-primary" type="button" value="Add" onclick="addMethod(methodArray)">
                         </span>
                     </div>
-                    <table id="methodTable" name="methodTable">
-                    </table>
-                    <input type="hidden" id="method-list" name="method-list">
+                    <div>
+                        <table id="methodTable">
+                        </table>
+                        <input type="hidden" id="method-list" name="method-list">
+                    </div>
                 </div>
             </div>
             <div class="col-12">
@@ -95,7 +98,7 @@
                 <a href="{{ url_for('recipes.collection') }}">Cancel</a>
             </div>
         </form>
-
     </div>
+</div>
 
-    {% endblock %}
+{% endblock %}

@@ -8,7 +8,7 @@
         <!-- Side box with recipe details -->
         <div class="col-md-5">
             <div class="row">
-                <p>Uploaded by: {{ recipe_creator }}</p>
+                <p>Added by: {{ recipe_creator }}</p>
             </div>
             <div class="row">
                 <p class="col">Total time: {{ recipe.total_time }}</p>
@@ -16,7 +16,6 @@
             </div>
             <div class="row" id="placeholder-img"
                 style="background-image: url('/static/images/other/placeholder.png'); background-repeat: no-repeat; background-position: center;">
-                <img id="recipe-image" src=" {{ recipe.image }}" alt="Recipe picture">
             </div>
             <div class="row">
                 <div class="col-sm-6">
