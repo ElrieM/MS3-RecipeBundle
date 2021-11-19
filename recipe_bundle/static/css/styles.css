@@ -5099,7 +5099,7 @@ fieldset:disabled .btn {
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: #c4b7b5;
+  background-image: linear-gradient(#DCDFD1, #C4B7B5);
   background-clip: border-box;
   border: 1px solid #1F1012;
   padding: 1rem;
