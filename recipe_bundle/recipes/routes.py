@@ -106,6 +106,7 @@ def delete_recipe(recipe_id):
     flash("Recipe successfully deleted")
     return redirect(url_for("recipes.collection"))
 
+
 @recipes.route("/search", methods=["GET", "POST"])
 def search():
     query = request.form.get("search-col")
