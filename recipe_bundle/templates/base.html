@@ -107,19 +107,19 @@
             </nav>
         </header>
         <!-- Section for flash messages -->
-        <section id="flash-message">
+        <div id="flash-message">
             <!-- Flash message -->
             <!-- Adapted from https://flask.palletsprojects.com/en/2.0.x/patterns/flashing/ -->
             {% with messages = get_flashed_messages() %}
             {% if messages %}
             <ul class=flashes>
                 {% for message in messages %}
-                <li><h2>{{ message }}</h2></li>
+                <li>{{ message }}</li>
                 {% endfor %}
             </ul>
             {% endif %}
             {% endwith %}
-        </section>
+        </div>
         <!-- Section for rendered pages' content -->
         <section id="content-wrapper">
             {% block content %}
