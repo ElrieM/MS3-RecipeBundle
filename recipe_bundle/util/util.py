@@ -11,8 +11,8 @@ if os.path.exists("env.py"):
 
 
 # AWS variables
-s3_bucket_name = os.environ.get("AWS_BUCKET_NAME")
-s3_bucket_url = os.environ.get("AWS_DOMAIN")
+s3_bucket_name = "ms3recipebundle"
+s3_bucket_url = "http://ms3recipebundle.s3.amazonaws.com/"
 s3 = boto3.client('s3',
                   aws_access_key_id=os.environ.get('AWS_ACCESS_KEY'),
                   aws_secret_access_key=os.environ.get('AWS_SECRET_ACCESS_KEY')
