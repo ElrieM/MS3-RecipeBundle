@@ -34,7 +34,15 @@ def register() -> object:
             {"email": request.form.get("email")})
         # if email exists, notify user and reload register page
         if existing_email:
-            flash("Email already exists, please sign in instea")
+            flash("Email already in use, please sign in instead")
+            return redirect(url_for("auth.signin"))
+
+        # confirm passwords the same
+        password1 = request.form.get("password")
+        password2 = request.form.get("passwordRepeat")
+        # if passwords are different, notify user and reload register page
+        if password1 is not password2:
+            flash("Passwords do not match, please try again")
             return redirect(url_for("auth.register"))
 
         # if username and email don't exist, register user in Users collection
@@ -132,5 +140,5 @@ def signout() -> object:
     """
     # Removes user from session cookies
     session.pop('user')
-    flash("Signed out successful")
+    flash("Signed out successfully")
     return redirect(url_for("auth.signin"))
