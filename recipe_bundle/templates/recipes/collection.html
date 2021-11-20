@@ -54,7 +54,7 @@
                     </td>
                     <!-- edit link, displays with edit image -->
                     <td>
-                        {% if session.user|lower == recipe.creator|lower %}
+                        {% if session.user|lower == recipe.creator|lower or session.user|lower == "admin" %}
                         <a aria-label="redirect to edit recipe page"
                             href="{{ url_for('recipes.edit_recipe', recipe_id=recipe._id)}}"
                             class="btn-small btn-link"><i class="fas fa-edit"></i></a>
@@ -62,7 +62,7 @@
                     </td>
                     <!-- delete link, displays with delete image -->
                     <td>
-                        {% if session.user|lower == recipe.creator|lower %}
+                        {% if session.user|lower == recipe.creator|lower or session.user|lower == "admin" %}
                         <a aria-label="deletes recipe"
                             href="{{ url_for('recipes.delete_recipe', recipe_id=recipe._id)}}"
                             class="btn-small btn-link"><i class="fas fa-trash-alt"></i></a>
