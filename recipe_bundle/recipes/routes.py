@@ -44,6 +44,11 @@ def add_recipe() -> object:
         try:
             # Store the recipe image file in AWS S3
             img_url = util.upload_img('recipe_img')
+        except Exception:
+            img_url = "https://ms3recipebundle.s3.eu-central-1.amazonaws.com/placeholder.png"
+
+    if request.method == "POST":
+        try:
             ingr_list = request.form.getlist("ingr-list")
             method_list = request.form.getlist("method-list")
             # Create recipe object from form

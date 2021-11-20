@@ -1,10 +1,8 @@
 import os
-from flask import (render_template, request)
+from flask import (request)
 from werkzeug.utils import secure_filename
 import boto3
 from botocore.exceptions import ClientError
-import logging
-from typing import Tuple
 
 if os.path.exists("env.py"):
     import env
